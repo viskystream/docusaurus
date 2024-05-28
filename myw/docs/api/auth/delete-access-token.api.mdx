@@ -1,0 +1,176 @@
+---
+id: delete-access-token
+title: "Delete the specified access token"
+description: "Delete the specified access token"
+sidebar_label: "Delete the specified access token"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVE1v2zAM/SuCThvmxO2wYoAxDGjRFPsoMKBNt0ORgyoztVZF0iTZbWD4v4+U7TRpMmxYLrFE8pF6fGTLA8jaq7jmxW3Lv/yYv7kD4cHjkSsTwRuhecalVmAifoi6LMb7iZDS1iZmAXyjJIxndPNWQyia5UTUseKLbpFx68CLqKz5XPKCl6AhwqmUEMLcPoDBICe8WOGtD6kYZdDPCYzPuEEDnuLgGWQFK8GLlse1I0OIXpl7tDxN7u1kuEy4NwZT8g5Lgl+18oDJo68hwwqC9MpRReh7yhI2G4CoYA/BWRMgUJ63R0f0txv07StRY5EOfDRahXNayfTI/Gcgl/aPpXb4y/i7Q7BnomRXWC2ESIWfHPKZeW89J4jd+/PEK4sVsOBAqqWCkolEMxvZQ44r+9yExDyyXPCcupU3x3kfMEkBIW/Tf0e8Y6PH9tReY0gVowtFnreVDZG6RG6N8Erc6Z650dC/YSlqjVxxbaXQZCIiFtlGhtdEVx+IYtyijRKNnafzINNs+LiwfiUImKK68fbv8ei6Lfr/SceEKZmGeyHXPcUh9UWZpSVAIqzvzfH0ZPoeIaKKmjC/qxIsu8CRKZNm2CnSz677YeJ7Ct0ysk+YE/lluwOE4sPsielhYC5VA3qdEqF9t2WPj49TnewN2aexyYkO0rOQcQ+EHUbZQ0AIh31dCbMF8S+y3HnuphERnmLutFBpiFPudtDrLU/bBfV2TJtpW7N4Lnpc1FaSGXq37Z0IcON119E1Dpintbd4FmwSdqkCfeOALIUOLzdF+zzw/NXVsFNesxf7Iztc/nApzDpNia7phJ8PsN5st26BjhWIMi3hdrBRo13citrbNTRFm8k+n13O5rO0r4mpDZsvZJwSHCzqw1lyYElaH/dL7LrfJkwftw==
+sidebar_class_name: "delete api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete the specified access token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/auth/v1/access-tokens/{token}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete the specified access token
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"token","schema":{"type":"string","x-go-type":"TokenUnion"},"required":true,"description":"A token string"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"500"}
+        value={"500"}
+      >
+        <div>
+          
+          
+          Error
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

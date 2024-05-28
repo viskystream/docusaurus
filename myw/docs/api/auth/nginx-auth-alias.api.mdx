@@ -1,0 +1,316 @@
+---
+id: nginx-auth-alias
+title: "Validate an view access token by private key and access token"
+description: "Validate an view access token by private key and access token"
+sidebar_label: "Validate an view access token by private key and access token"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VUtz2zYQ/isYXJpOFdNJ82h0cx9p3WSajO2kB8eHFbkSkUAAA4CSWQ7/e3cByhQltnGm05Mo7Pvbb3dbWYGDNQZ0Xs6vW6mMnNNbKOVMGhLwP6c2EPAVNvTm8HOtHBZyHlyNM+nzEtcg560MTcXaPjhlVrLrZpPOIM/R+yv7Cc1XeJvJ24cr+7B/jNbvjLJmL8znGl0zxMm1QhMucInOoRuFWoL298r8wKWxPwHZ3MvXwlqN8C/5VfVCq/wQ0y+mdjOTtkIHgYo/LziplTK3Z3Uoz7QCH535yhqPns0fn57yT4E+d6piIzJ584rUcmsCAcRSqCpKJbrMPnpWaY8zsIuPmAcyHPviyNapv6K18AFC7cVWhVJcXb3+MG7xdd98egxBSyqlclxMUCnZXjoBYjIYBIpyX8WujrOhmEJRGkjVFT6Gj7zpMScx+6o9OsauHZGKfbol5Nh2R36Ja9Q+cf6zINtCBCtUQeCpZSNCifzoOC5/J94J61Zgeli+8cI3PuA6JoS3sK40R3z0+PsnT589/+HFKT1bg2+WcQIPmb+0bg2BW12vF1Q0M+oAh+6mL+uPWOgRbQhpNAV/HoN7WOu5EW+Tcmwnfkj488glin3VcMqgQiz2LDb3MhKEBCx6MkXOH6EQF0QZ9CHaj6XvQauCkhJgxEbhViTOiJieWDSi31XiEzakU4zklCgtutLy2KyQuRxX01xm7IoWYAbE5qwd9l2XRcOs3dtazA5CerNbmLUjZsoyhMrPs6wtrQ9MN1bbgFOw0IndO0EqeQm15p5qm4NmEWNyw57z2qnQXPL8JcPf/7zaw5wDyX5DxDYipP2WPl7uyMJW3e71y/akShbf3Vd9KlzEW+MK8ibh7WMDlVladsiApSY+Onl68lwO1HhPw2TFS1ubIq0RXirikjBWOU5unJ1Q/EYxCV9xNroqtM0oekS6n/zXaoO6iYFIPm7Zdrs90VG+YflJ2GQMBy9IyMOREzHt5cgDDx31dQ1mz8V/5e8IirsmBbwNWaVBxVGNebU9t69lz20yZnbTz3x0z3ee5/uHmYgYOUnmbbsAj++c7jp+TleMeV8oz9wejhalPHV3N6BrTjLurX8wGi7rfbT3T+egfzPM23R+B9jdHUD54KI/Ud8KBmQK0/4RzCjmXUIDoJNp/3+R95sWj0CJUPAAEwBJgyejCnu2R9eekbvbi7/+Qmuj+xv00HHU
+sidebar_class_name: "get api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Validate an view access token by private key and access token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/viewers/auth/{privateKey}/token/{accessToken}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Validate an view access token by private key and access token
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"privateKey","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"accessToken","required":true,"schema":{"type":"string","x-go-type":"TokenUnion"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"clientReferrer","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"noCache","required":false,"schema":{"type":"boolean"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"publicKey","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"access"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"ttl"}
+                        required={true}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","description":"TTL in seconds\n","x-go-name":"TTL"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <strong>
+                              userId
+                            </strong><span
+                              style={{"opacity":"0.6"}}
+                            >
+                               object
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Unique ID used to identify the user in the client organization's system
+                              
+                              
+                              
+                            </div>
+                          </div><div>
+                            <span
+                              className={"badge badge--info"}
+                            >
+                              oneOf
+                            </span><SchemaTabs>
+                              <TabItem
+                                label={"MOD1"}
+                                value={"0-item-properties"}
+                              >
+                                <div
+                                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                >
+                                  
+                                  
+                                  string
+                                  
+                                  
+                                </div>
+                              </TabItem><TabItem
+                                label={"MOD2"}
+                                value={"1-item-properties"}
+                              >
+                                <div
+                                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                >
+                                  
+                                  
+                                  integer
+                                  
+                                  
+                                </div>
+                              </TabItem>
+                            </SchemaTabs>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"userName"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"pending"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"In Pending state\n"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tokenAlias"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","x-go-type":"TokenUnion"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"access\": true,\n  \"ttl\": 0,\n  \"userId\": \"string\",\n  \"userName\": \"string\",\n  \"pending\": true,\n  \"tokenAlias\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

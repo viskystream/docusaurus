@@ -1,0 +1,142 @@
+---
+id: get-health
+title: "Service health endpoint"
+description: "Service health endpoint"
+sidebar_label: "Service health endpoint"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNU8tu2zAQ/BWC1xpWGrQo4FsK5NGipyRtD4YPNLWOmFAkS67kCIL+vbuUHNu1i/YkcR8zy9lhL32AqNB496WUC/kEeAfKYiVnMkIK3iVIctHLy4sL/pSQdDSB66n6HrCJLomxRRi38dSnvUNwyOUqBGt0hi+eE/f0MukKasV/2AUgFL9+Bo2Z8FdjItAcS1llyE6uZjJEnhHNOMguse9fe29BOQKAV1UHS7GNsgmGYSbRIJ/ldKlh4OCHc3f5rEpxTwNAQslFx9kHiK3RIEZ2Aa4M3jgeugas/CQdHYMimoUsqp2KiToh0ujLXjbRUq5CDGlRFH3lEzpVw0BlrYpGre10xykxTrlRjSU1pfVaWU7xNVaMrJtosHtgQcfGrz8fD4RhIp4g51koUBEiRcafGx9rxcDcNeyi/+6nUup497/l5+iEcqWw8KR0J9C/gEtZ82wgAmTBRt3fzz/OP8n9Hn+YEry48Y0rs6vEVUPrmLYj/9zaYVLcESfpK660hpQemZUayJ7EnpUeFZffTAu2y0SUP17Zdrud25xvOT/HtmA52PFK4wmIOI9ygkAQgfZaK3cA8XfLHV3yTX6EVyyCVcbxSJmxn+y4e078mrKBKNL3a5Xge7TDwGEyfqRHtVztrcgnQqLWkvdM/n2BjlUlAQNmz9qGmU9eObvz7V3cXpO7ht/ZUoLQ
+sidebar_class_name: "get api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Service health endpoint"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/health"}
+>
+  
+</MethodEndpoint>
+
+
+
+Service health endpoint
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Returns Health info
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"healthy"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","example":false}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"healthy\": false\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

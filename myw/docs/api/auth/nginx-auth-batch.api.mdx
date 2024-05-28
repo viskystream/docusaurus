@@ -1,0 +1,451 @@
+---
+id: nginx-auth-batch
+title: "go over the stream names and access tokens (uuid) from the nginx request and for each tuple <public key, access token> check if there is a corresponding key in redis (which should container either access: true, access: false or pending) in case such key doesn't exist in Redis, the function will send a request to the integration system and while waiting it will ok the access to the stream"
+description: "go over the stream names and access tokens (uuid) from the nginx request and for each tuple <public key, access token> check if there is a corresponding key in redis (which should container either access: true, access: false or pending) in case such key doesn't exist in Redis, the function will send a request to the integration system and while waiting it will ok the access to the stream"
+sidebar_label: "go over the stream names and access tokens (uuid) from the nginx request and for each tuple <public key, access token> check if there is a corresponding key in redis (which should container either access: true, access: false or pending) in case such key doesn't exist in Redis, the function will send a request to the integration system and while waiting it will ok the access to the stream"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV9tuGzcQ/RWCL01Q2YqLFgGEIoBdNOjFbQJZbR4SoxhxR1rGXJIhuSsJgv69M+TK0lYq0oc8BEhtQBY5M4czZy6kt9JDgAYThignb7dSWzmRH1oMGzmSliS0VEajTVNcYAgYaD/gh1YHrORkASbiSEZVYwNyspVp49kkpqDtUu529yPpPAZI2tmfyUDapbbr6zbVN5BU3YNhTDeu2jCAcjbRafwVvDdaZdPx++gs752c5ObvUSXCqTCqoD1r0/a1aMALtxDkCUIjOJQokhOgFEb+9oA2ioULItUoslcCyC3R+/POEiZUlWZAMK8Dh5E0xnNnf0QPQgDmUydsztofCH0ro65op1F/ZfaJPz+AZPEpzweDc7KUzNG+JoKXOY9DymazW6GtiEgpqGKOf32xdBd9FZCY8klgOhle/86U3WV2T/dnTO+tjkmet/gNPBmxWcDonY0luG+ePeM/Q79e/UqefKKyYJeiWOmcZ9bASoCtclV4XpRyKYWR/c08HOenqObNfMRJhnqFLyz9PRtfVNT/FEz7Wu5L+9tz1XwDlZiWEZORh9KlE67DMpMGk2tfpIfR9aRtdfVULIJrjkZYP72yPtcwgqpFar1B8b1v59Q44gE3owHWC0Hdox6EXjBQQKHpPKFcKL1ZEaFsxDxRukj4ZFVrgo21a00luDVBW/IaNdv32BORQoujx1W+KgS55DFDPmU8BbQXWwLjAyqH0X6VBK6pTVk85eNGObxFaxWTRM1rDOWL+XiMluY66+Qkl7tGxE2kwss8kLcU/gpoRFMkOhUI95BtHok44pxLEVPt+L7yLnKxekg1rcZ8RYy7q3GncUV35jiznndJKWLo9hdpG6j8ZJ2Sj5PxeFsTDGdyR2odBA1zU0p7LyiVsoDWUBNJ4xQYFnEp3TOyaoNOmzuec8Xwlzezo/rmg2R/EfN6jlDu6vLlpQsNMDBb7fa7H7cnVbL4+r+qnzsup8DgEtSmL91c9zy5p4er/8c1NJ47aUsybReOD2MyS19cXX53+Vwe2u1PXaETL11rq5JuflGIO+JfKzx9DBwJxU/kD3EvrnPi80VFBtQYyJ1Lp/atf6s7NJt8EMmH6VytVpcmyzuWX6ZuzFTlTihDcAAizqOcIBAEl1sD9gji/5HwmYyEQU09dkLCdRp7Q9FyBeQEb/tpQW+FMhe6K/4oE4Of1ZwWfjWylJo79zlpb7dziv2PYHY73i6vcJ4lFDHPi8N7m5g59y7vwLTsk+SRsZ8yhHBPntUIFbcwwRXrH8qL6mLGcRxsT15Xu9He4nr/8vl33fujyfn61d2MJ0L/sG9cxTYBVnz30+dEvqNfyf8gMEIeanl/Kw3YZQtL1i+4/PM3dCxk7w==
+sidebar_class_name: "post api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"go over the stream names and access tokens (uuid) from the nginx request and for each tuple <public key, access token&gt; check if there is a corresponding key in redis (which should container either access: true, access: false or pending) in case such key doesn't exist in Redis, the function will send a request to the integration system and while waiting it will ok the access to the stream"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/v1/viewers/nginx/auth"}
+>
+  
+</MethodEndpoint>
+
+
+
+go over the stream names and access tokens (uuid) from the nginx request and for each tuple &lt;public key, access token&gt; check if there is a corresponding key in redis (which should container either access: true, access: false or pending) in case such key doesn't exist in Redis, the function will send a request to the integration system and while waiting it will ok the access to the stream
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"query","name":"clientReferrer","required":false,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  property name*
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   NginxTokenList
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <SchemaItem
+                collapsible={true}
+                className={"schemaItem"}
+              >
+                <details
+                  style={{}}
+                  className={"openapi-markdown__details"}
+                >
+                  <summary
+                    style={{}}
+                  >
+                    <span
+                      className={"openapi-schema__container"}
+                    >
+                      <strong
+                        className={"openapi-schema__property"}
+                      >
+                        property name*
+                      </strong><span
+                        className={"openapi-schema__name"}
+                      >
+                         object[]
+                      </span>
+                    </span>
+                  </summary><div
+                    style={{"marginLeft":"1rem"}}
+                  >
+                    <li>
+                      <div
+                        style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                      >
+                        Array [
+                      </div>
+                    </li><SchemaItem
+                      collapsible={false}
+                      name={"sid"}
+                      required={true}
+                      schemaName={"string"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"mc_name"}
+                      required={true}
+                      schemaName={"string"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"string"}}
+                    >
+                      
+                    </SchemaItem><SchemaItem
+                      collapsible={false}
+                      name={"ttl"}
+                      required={false}
+                      schemaName={"integer"}
+                      qualifierMessage={undefined}
+                      schema={{"type":"integer","description":"TTL in seconds\n","x-go-name":"TTL"}}
+                    >
+                      
+                    </SchemaItem><li>
+                      <div
+                        style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                      >
+                        ]
+                      </div>
+                    </li>
+                  </div>
+                </details>
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                accept
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"sid"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"mc_name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ttl"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"TTL in seconds\n","x-go-name":"TTL"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                reject
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span><span
+                                className={"openapi-schema__divider"}
+                              >
+                                
+                              </span><span
+                                className={"openapi-schema__required"}
+                              >
+                                required
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"sid"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"mc_name"}
+                              required={true}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"ttl"}
+                              required={false}
+                              schemaName={"integer"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"integer","description":"TTL in seconds\n","x-go-name":"TTL"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"accept\": [\n    {\n      \"sid\": \"string\",\n      \"mc_name\": \"string\",\n      \"ttl\": 0\n    }\n  ],\n  \"reject\": [\n    {\n      \"sid\": \"string\",\n      \"mc_name\": \"string\",\n      \"ttl\": 0\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

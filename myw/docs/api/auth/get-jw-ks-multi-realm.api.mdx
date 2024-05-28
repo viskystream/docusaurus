@@ -1,0 +1,238 @@
+---
+id: get-jw-ks-multi-realm
+title: "Returns a list of JSON Web Keys from multiple realms"
+description: "Returns a list of JSON Web Keys from multiple realms"
+sidebar_label: "Returns a list of JSON Web Keys from multiple realms"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVE1v2zAM/SuCrmvjZtgwoLcOWLel+wDSbjkEPTA2EyuRJU+ikxlG/vtIOWuTxcCGXRKL5HuUHp/UaV9jADLefSz0tV4hTWZ38XNjyUwRbKUvdMBYexcx6utOv7y6kr8CYx5MLThG3YQArfJLJVhG5N4ROpJCqGtr8tQgW0ep7nTMS6xAvqitkfF+scacGFgH2Q6ZvtcG23hUBdKFiwxhFYfQp5ua3H/9oma4UHfYnlGDXR0xRArGrfT+Qm+oHYw3EQfjbjA6XLsxxWAcrIE4kOEUGbISYl15fRqIEuHQq6GJvIVCTfFHg5ES0Wl2itQEFxUoayKlwR2JFdUy+EpV4oHaogriAxlrhVT6g0tEUaCSFxk0VGbbcbbebeJlQl2Gg3Uihi0GPty8002wXF0S1fE6y7rSR3JQ4Z7LthAMLGw/mt+J/lBLYELGWZ+DlZSc+lGY8yYYau/FSz1wMns4UlEayQ5SntcLhICBI/3HrQ8VUFLyQYZwSP8Vz6WMePGv5UPtFLhCWVxB3iryG3Qxjci4pRdCEawf03j0evRGPw/9uynQq1vfuCJdKHXDyqt71tjkeOb/46T6wD1ZX3WT5xjjg3RlAN9M7p6U7hXXn8wWbZsacf50ZLvdbmRTfiv5EW0zkUMuO+R0RqKGWc4YmKLmuVbgjij+06EnCjzNhvAnZbUF49JVlu10B/fOtbhXLDjmnzMHs9GS57iu6xYQ8Vuw+72E+WoFfirmj8/ulRXzlwiFWGOeHjAZBGteU7K5bdJD9uebKIZ+ulzv37Eh978AT8fmkw==
+sidebar_class_name: "get api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Returns a list of JSON Web Keys from multiple realms"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/auth/v1/jwks-multi-realm"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a list of JSON Web Keys from multiple realms
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Array of JWKs
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                keys
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object[]
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                              >
+                                Array [
+                              </div>
+                            </li><SchemaItem
+                              collapsible={false}
+                              name={"alg"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"kty"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"use"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"n"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"e"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"kid"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"alias"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><li>
+                              <div
+                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                              >
+                                ]
+                              </div>
+                            </li>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"keys\": [\n    {\n      \"alg\": \"string\",\n      \"kty\": \"string\",\n      \"use\": \"string\",\n      \"n\": \"string\",\n      \"e\": \"string\",\n      \"kid\": \"string\",\n      \"alias\": \"string\"\n    }\n  ]\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

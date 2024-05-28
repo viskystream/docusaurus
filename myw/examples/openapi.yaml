@@ -1,0 +1,903 @@
+openapi: 3.0.0
+info:
+  version: 1.5.7
+  title: Video Foundation Auth Service
+  description: Auth Service Handles AccessToken
+  license:
+    name: LivelyVideo
+    url: https://www.livelyvideo.tv/
+  contact:
+    name: Lively Video
+    url: https://livelyvideo.tv/
+servers:
+  - url: https://{hostname}
+    variables:
+      hostname:
+        default: localhost
+paths:
+  "/auth/v1/access-tokens/{token}":
+    get:
+      security:
+        - JWT+bearer:
+            - internal
+            - client
+            - aud:internal-account,service-account
+            - roles:vf-auth
+      summary: Get an access token payload by token string
+      operationId: getAccessToken
+      parameters:
+        - in: path
+          name: token
+          schema:
+            type: string
+            x-go-type: TokenUnion
+          required: true
+          description: A token string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          description: Bad Request
+        "500":
+          description: Error
+          content:
+            application/json:
+              schema:
+                type: string
+    delete:
+      security:
+        - JWT+bearer:
+            - internal
+            - client
+            - aud:internal-account,service-account
+            - roles:vf-auth
+      summary: Delete the specified access token
+      operationId: deleteAccessToken
+      parameters:
+        - in: path
+          name: token
+          schema:
+            type: string
+            x-go-type: TokenUnion
+          required: true
+          description: A token string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad Request
+        "500":
+          description: Error
+  /auth/v1/access-tokens:
+    post:
+      security:
+        - JWT+bearer:
+            - internal
+            - client
+            - aud:internal-account,service-account
+            - roles:vf-auth
+      operationId: saveAccessToken
+      summary: Create or update an access token
+      requestBody:
+        description: save Access Token
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccessToken"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          description: Bad Request
+  /auth/v1/access-tokens/batch:
+    delete:
+      security:
+        - JWT+bearer:
+            - internal
+            - client
+            - aud:internal-account,service-account
+            - roles:vf-auth
+      summary: Delete the batch of specified access tokens
+      operationId: deleteAccessTokenBatch
+      requestBody:
+        description: Delete access tokens
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        "400":
+          description: Bad Request
+  /auth/v1/program-states:
+    post:
+      security:
+        - JWT+bearer:
+            - internal
+            - client
+            - aud:internal-account,service-account
+            - roles:vf-auth
+      summary: |
+        Returns the program state and a user's token state if provided
+
+        Program state is analogous to a stream in the legacy system
+      operationId: programStates
+      requestBody:
+        description: Program state request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgramStateReq"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProgramStateResp"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /viewers/nginx/auth:
+    post:
+      parameters:
+        - in: query
+          name: clientReferrer
+          required: false
+          schema:
+            type: string
+      summary: "go over the stream names and access tokens (uuid) from the nginx
+        request and for each tuple <public key, access token> check if there is
+        a corresponding key in redis (which should container either access:
+        true, access: false or pending) in case such key doesn't exist in Redis,
+        the function will send a request to the integration system and while
+        waiting it will ok the access to the stream"
+      operationId: nginxAuthBatchAlias
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NginxStreamMap"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NginxResponse"
+        "400":
+          description: Bad Request
+  "/viewers/auth/{privateKey}/token/{accessToken}":
+    get:
+      summary: Validate an view access token by private key and access token
+      parameters:
+        - in: path
+          name: privateKey
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: accessToken
+          required: true
+          schema:
+            type: string
+            x-go-type: TokenUnion
+        - in: query
+          name: clientReferrer
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: noCache
+          required: false
+          schema:
+            type: boolean
+        - in: query
+          name: publicKey
+          required: false
+          schema:
+            type: string
+      operationId: nginxAuthAlias
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessStatus"
+        "400":
+          description: Bad Request
+  /auth/v1/viewers/nginx/auth:
+    post:
+      parameters:
+        - in: query
+          name: clientReferrer
+          required: false
+          schema:
+            type: string
+      summary: "go over the stream names and access tokens (uuid) from the nginx
+        request and for each tuple <public key, access token> check if there is
+        a corresponding key in redis (which should container either access:
+        true, access: false or pending) in case such key doesn't exist in Redis,
+        the function will send a request to the integration system and while
+        waiting it will ok the access to the stream"
+      operationId: nginxAuthBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NginxStreamMap"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NginxResponse"
+        "400":
+          description: Bad Request
+  "/auth/v1/viewers/auth/{privateKey}/token/{accessToken}":
+    get:
+      summary: Validate an view access token by private key and access token
+      parameters:
+        - in: path
+          name: privateKey
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: accessToken
+          required: true
+          schema:
+            type: string
+            x-go-type: TokenUnion
+        - in: query
+          name: clientReferrer
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: noCache
+          required: false
+          schema:
+            type: boolean
+        - in: query
+          name: publicKey
+          required: false
+          schema:
+            type: string
+      operationId: nginxAuth
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessStatus"
+        "400":
+          description: Bad Request
+  /auth/v1/jwks:
+    get:
+      parameters:
+        - in: query
+          name: kc
+          description: Include JWKs from KeyCloak
+          required: false
+          schema:
+            type: boolean
+      summary: Returns a list of JSON Web Keys
+      operationId: getJWKs
+      responses:
+        "200":
+          description: Array of JWKs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JWKs"
+        "400":
+          description: Bad Request
+    post:
+      summary: Create new JSON Web Key
+      operationId: createJWK
+      security:
+        - JWT:
+            - roles:vf-auth,${referrer}-vf-auth
+      requestBody:
+        description: JWK configuration
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateJWK"
+      responses:
+        "201":
+          description: Newly created JWK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JWK"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+  /auth/v1/jwks-multi-realm:
+    get:
+      summary: Returns a list of JSON Web Keys from multiple realms
+      operationId: getJWKsMultiRealm
+      responses:
+        "200":
+          description: Array of JWKs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JWKs"
+        "400":
+          description: Bad Request
+  "/auth/v1/jwks/{kid}":
+    put:
+      parameters:
+        - in: path
+          name: kid
+          schema:
+            type: string
+          required: true
+          description: JSON Web Key ID
+      summary: Update existing JWK
+      operationId: updateJWK
+      security:
+        - JWT:
+            - roles:vf-auth,${referrer}-vf-auth
+      responses:
+        "200":
+          description: JWK updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JWK"
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+  /auth/v1/jwt:
+    post:
+      summary: Create JWT
+      operationId: createJWT
+      security:
+        - JWT:
+            - roles:vf-auth,${referrer}-vf-auth
+      requestBody:
+        description: JWT options
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateJWT"
+      responses:
+        "201":
+          description: JWT
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JWTResponse"
+        "400":
+          description: Bad Request
+        "401":
+          description: JWT
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          description: Forbidden
+  /health:
+    get:
+      summary: Service health endpoint
+      operationId: getHealth
+      responses:
+        "200":
+          description: Returns Health info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+        "400":
+          description: Bad Request
+  /health/test:
+    get:
+      summary: Returns health information
+      operationId: getHealthTest
+      responses:
+        "200":
+          description: Returns Health info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthTest"
+        "400":
+          description: Bad Request
+  /health/ping:
+    get:
+      summary: used to determine load balance weight
+      operationId: getHealthPing
+      responses:
+        "200":
+          description: Ping system
+        "255":
+          description: send full '255' weight for atg load balancers.  weight value is
+            ignored by swarm
+        "400":
+          description: Bad Request
+components:
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    bearer:
+      type: http
+      scheme: bearer
+    JWT+bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT and legacy tokens
+  schemas:
+    AccessToken:
+      description: >
+        AccessToken is used to authenticate a user across the Lively Video
+        services.
+      additionalProperties: false
+      type: object
+      required:
+        - scopes
+      properties:
+        token:
+          description: >
+            Unique authentication token for use by the end user client to
+            authenticate against Lively Video APIs
+
+            If present, the token is echoed back in the response. 
+
+            If not, a newly generated token is returned on the response.
+          type: string
+          x-go-type: TokenUnion
+          example: cb069d2d-724e-402f-9724-4910fe3604d7
+        scopes:
+          description: Array of scopes for which the token is valid
+          example:
+            - conference-owner
+          type: array
+          minItems: 1
+          items:
+            type: string
+        accessIds:
+          description: |
+            Array of ids for which the token is valid
+          example:
+            - e0d9d6d6-9977-4a13-97e2-e66b122390df
+            - bbaedb37-0e3e-47c0-933e-5f20b308b58a
+          default: []
+          type: array
+          items:
+            type: string
+            format: uuid
+        ttl:
+          description: >
+            Users of the access token lose access to Lively Video services
+            after the ttl. Defaults to 300 seconds.
+          example: 600
+          type: integer
+        expire:
+          description: >
+            Users of the access token lose access to Lively Video services
+            after the expiration time. 
+
+            Can be specified instead of TTL.
+          example: 2023-01-01T00:00:00.000Z
+          type: string
+          format: date-time
+        userId:
+          x-go-type: interface{}
+          description: >
+            Unique ID used to identify the user in the client organization's
+            system
+          example: "1234567890"
+          nullable: true
+          oneOf:
+            - type: string
+              format: number
+            - type: integer
+            - type: "null"
+        admin:
+          description: >
+            If true, the user has admin privilege for the lifetime of the user
+            token
+          example: false
+          type: boolean
+          default: false
+        data:
+          description: |
+            Additional data to be stored with the access token
+          example:
+            foo: bar
+          type: object
+          additionalProperties: true
+          default: {}
+    CreateJWT:
+      type: object
+      description: JSON Web Token (JWT) create request body
+      required:
+        - kid
+      properties:
+        kid:
+          type: string
+          description: Key ID of the JWK
+        ttl:
+          description: >
+            ttl stands for time to live, a ttl of 300 will expire in 300
+            seconds. Either ttl or expire should be used but not both
+          example: 600
+          type: integer
+        expire:
+          description: >
+            The JWT will no longer be valid after this date. Either ttl or
+            expire should be used but not both
+          example: 2023-01-01T00:00:00.000Z
+          type: string
+          format: date-time
+        roles:
+          type: array
+          items:
+            type: string
+            default: []
+        groups:
+          type: array
+          items:
+            type: string
+            default: []
+        permissions:
+          type: array
+          items:
+            type: string
+            default: []
+        claims:
+          type: object
+          additionalProperties: true
+          default: {}
+    JWTResponse:
+      type: object
+      description: JWT response
+      properties:
+        token:
+          type: string
+    CreateJWK:
+      type: object
+      description: JSON Web Key create request body
+      required:
+        - disabled
+        - passive
+        - alias
+        - aud
+      properties:
+        aud:
+          type: string
+          enum:
+            - user
+            - service-account
+            - internal-account
+        disabled:
+          type: boolean
+        passive:
+          type: boolean
+        alias:
+          description: A readable descritpion of the key
+          type: string
+    JWK:
+      type: object
+      description: JSON Web Key
+      properties:
+        alg:
+          type: string
+        kty:
+          type: string
+        use:
+          type: string
+        n:
+          type: string
+        e:
+          type: string
+        kid:
+          type: string
+        alias:
+          type: string
+    JWKs:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: "#/components/schemas/JWK"
+    NginxStreamMap:
+      type: object
+      description: |
+        A map of stream names to access tokens for the nginx auth request
+      additionalProperties:
+        $ref: "#/components/schemas/NginxTokenList"
+    NginxTokenList:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          $ref: "#/components/schemas/NginxStream"
+    NginxStream:
+      type: object
+      required:
+        - sid
+        - mc_name
+      properties:
+        sid:
+          type: string
+        mc_name:
+          type: string
+        ttl:
+          type: integer
+          description: |
+            TTL in seconds
+          x-go-name: TTL
+    NginxResponse:
+      type: object
+      description: |
+        Lists with rejected and accepted streams for Nginx
+      required:
+        - accept
+        - reject
+      properties:
+        accept:
+          type: array
+          items:
+            $ref: "#/components/schemas/NginxStream"
+        reject:
+          type: array
+          items:
+            $ref: "#/components/schemas/NginxStream"
+    AccessStatus:
+      type: object
+      description: |
+        Authorization status with TTL
+      required:
+        - access
+        - ttl
+      properties:
+        access:
+          type: boolean
+        ttl:
+          type: integer
+          description: |
+            TTL in seconds
+          x-go-name: TTL
+        userId:
+          x-go-type: interface{}
+          description: >
+            Unique ID used to identify the user in the client organization's
+            system
+          example: "1234567890"
+          oneOf:
+            - type: string
+              format: number
+            - type: integer
+        userName:
+          type: string
+        pending:
+          type: boolean
+          description: |
+            In Pending state
+        tokenAlias:
+          type: string
+          x-go-type: TokenUnion
+    ProgramStateReq:
+      type: object
+      required:
+        - skipCache
+        - programs
+      properties:
+        skipCache:
+          type: boolean
+        clientReferrer:
+          type: string
+        programs:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProgramReq"
+    ProgramReq:
+      type: object
+      required:
+        - id
+        - cacheKey
+      properties:
+        id:
+          type: string
+        cacheKey:
+          type: string
+        tokens:
+          type: array
+          items:
+            type: string
+    ProgramStateResp:
+      type: object
+      required:
+        - programs
+      properties:
+        programs:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ProgramResp"
+    ProgramResp:
+      type: object
+      required:
+        - state
+        - stop
+        - tokens
+        - updated
+        - cacheKey
+        - needAuth
+      properties:
+        cacheKey:
+          description: cacheKey that was past into the request
+          type: string
+        state:
+          type: string
+        stop:
+          type: boolean
+        needAuth:
+          type: boolean
+        updated:
+          type: string
+          x-go-type: time.Time
+          format: RFC 3339
+          description: Describes the time when the program state was stored in cache, will
+            be a zero time if not found in cache
+        tokens:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ProgramStateTokenResp"
+    ProgramStateTokenResp:
+      type: object
+      required:
+        - status
+        - statusCode
+        - message
+      properties:
+        status:
+          type: boolean
+        statusCode:
+          type: integer
+        message:
+          type: string
+        userName:
+          type: string
+        userId:
+          x-go-type: interface{}
+          oneOf:
+            - type: string
+            - type: integer
+    Health:
+      type: object
+      required:
+        - healthy
+      properties:
+        healthy:
+          type: boolean
+          example: false
+    HealthTest:
+      type: object
+      required:
+        - state
+        - success
+      properties:
+        state:
+          $ref: "#/components/schemas/HealthState"
+        success:
+          $ref: "#/components/schemas/Success"
+    HealthState:
+      type: object
+      required:
+        - startUp
+      properties:
+        startUp:
+          $ref: "#/components/schemas/StartUp"
+    StartUp:
+      type: object
+      properties:
+        startUpTime:
+          type: integer
+    Success:
+      type: object
+      properties:
+        duration:
+          type: integer
+        result:
+          type: boolean
+    Error:
+      type: object
+      x-go-type: apperrors.Error
+      x-go-type-import:
+        path: github.com/LivelyVideo/service-definitions/errors
+        name: apperrors
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message for the end user
+        errorCode:
+          type: string
+          description: Code that can be set that supplies a specific reason for why a
+            request failed
+        invalidFields:
+          type: array
+          description: Specific error scoped to a field
+          items:
+            $ref: "#/components/schemas/InvalidField"
+        internal:
+          type: string
+          description: Internal user only
+    InvalidField:
+      type: object
+      x-go-type: apperrors.InvalidField
+      x-go-type-import:
+        path: github.com/LivelyVideo/service-definitions/errors
+        name: apperrors
+      required:
+        - name
+        - reason
+      properties:
+        name:
+          type: string
+        reason:
+          type: string
+        errorCode:
+          type: string

@@ -1,0 +1,254 @@
+---
+id: update-jwk
+title: "Update existing JWK"
+description: "Update existing JWK"
+sidebar_label: "Update existing JWK"
+hide_title: true
+hide_table_of_contents: true
+api: eJyNVG1v0zAQ/iuWxQcQXbPyIqQIIW1CE9sQoK2jH6Z+cJPr4tW1je2kK1H+O3dO1m5NBHyJ47vzvTz33NXcCifWEMB5nt7WXGqeoiwUfMQ1KvC2kjlefFbAWvC05mFrSeyDk/qONyPu4FcpHeQ8Da6EEc/BZ07aIA05u7j+/o3NYMEuYcvOP/NmPuLGghOkP8dHvLS5CHAxu6QwkJVOhm1M5mI2xZM7o8Cn1fJIlKEYvagdLME5cM1RJ+NzcurAW6M9eEryzfExHQepzC5ZG4wqyowOoAOZCWuVzGJGyb0n27pfsFncQxb43+pDpXVUXJBtGkLdDUK2ogoH5KWHQbkelA7bUr+G5EJJ4Qc0qAoyKGgBwjtJ3g3hdypydoXNBh94tJn0bW40dcQ4+RtBjkZv+0Znxi1knoOO0Q8cxAYxeJA+YH6s5QVStDBEFltSCyJDU55QrKSaJPeblU9qrLyJHHLVI59Lp9CuCMH6NEnqwvhAtCazSjgpFqpt1KOizXUpSoXE4MpkQpGKUJnv2XlN3GgfRo7uMKVAj8NC9wUIJCpK2h+sey1CBHpK4HTqf75HU3zx+n/Nh8IxoXOm4E5kWxbMCrSP2Eu9NOSQAGvxn4zfjz/wPSd+yhwMOzOlzuOAsBPEnF0jxjKD3jQ8VbIvGBPxZSdZBt5PKSo+wEnD6BHpbsN8lRWobQyE+uct22w2YxX1FenHoUoIDhpekYWeEzbspecBXVjs61roJy6GqfeswB30AR5CYpXAhdl00eqOlrc8LiVk2AQ/RE08UhpLpFBkE5rU9UJ4uHGqaUiMQ+Vo6c33vIz8zaWnf2T+Uih/uFzr/RLjL6+6NfyKHa7c0XDSnVDobZwGVdINf1e4yNq138zRrACRE+swm1ZD7bThyZve+qRZ2U3sj5sp2kZI9vAdMDV6H8zn42k0YJE9n3bZRQpTfk3zBw1dRoE=
+sidebar_class_name: "put api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update existing JWK"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/auth/v1/jwks/{kid}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update existing JWK
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"in":"path","name":"kid","schema":{"type":"string"},"required":true,"description":"JSON Web Key ID"}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          JWK updated
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"alg"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"kty"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"use"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"n"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"e"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"kid"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"alias"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"alg\": \"string\",\n  \"kty\": \"string\",\n  \"use\": \"string\",\n  \"n\": \"string\",\n  \"e\": \"string\",\n  \"kid\": \"string\",\n  \"alias\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"401"}
+        value={"401"}
+      >
+        <div>
+          
+          
+          Unauthorized
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem><TabItem
+        label={"403"}
+        value={"403"}
+      >
+        <div>
+          
+          
+          Forbidden
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

@@ -1,0 +1,208 @@
+---
+id: delete-access-token-batch
+title: "Delete the batch of specified access tokens"
+description: "Delete the batch of specified access tokens"
+sidebar_label: "Delete the batch of specified access tokens"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVG1rGzEM/ivGX3fJtWNjEMagWVP2Uhi02fahywfFp+S8+uyb7Usajvz3Sr6kuTZlo2ugnC09kqznkVoZUDVex40c3bTyy8/pqzmCR09HqW1Eb8HITCqj0Ub6gKYY7e8HoJRrbMwC+pVWuD+Tm3cGw2i1GEATSznbzjLpavQQtbOfCzmSBRqMeKYUhjB1t2jHEFXJSPzTYIhjV1BJLfkF5XXNOEKdJ5SABBORcWGH0R4pbvQNUrWOKqQ6CA91bbRKefPfgYO0MqgSK+CvuKmRwoL3sKE4OmIVevchem2Xcst/nCXUzgZMHq9PTo7L+/ZVvjx5L0km3zwXdgyFuOraItnp2Z7EEsWceyjcQoQalV5oLI5aVWEs3YEAuqmBGBrJnJnKV6d5hxh0iHy+o4UpRh+SShpvCFDGWIdRnrelC9FChVtyW4HXMDddj/aG7kULaAx1RRqnwLCJnzzLHgR4zY3pgCTDXoM4EVeQ7HTeCTTbfVw4XwEHZtR2f/tvPLn25f4/6QTYQhhcgtrsO8z8MNVXBxlP7qCqDfJE7bimV2u7cJyUm9rxeDp8O3xHaaKO7Cx/6AKduKCBKpKCxBkRJK67UZNPVdA3ik9UF3EgeuNFAJIiVZjY6FiRl3qFZpMSkf0xrev1emiSfcX2YVzl3DJWN6h4FEQ8H+UoAoWoifsKbC/EyyT86OEPtEW8i3ltQFsuM1XR7rR9I9MWInWe8gbr65tpTQonSpImyblt5xDwuzfbLV8Tj5634+ygbj5RkhKhSJuylbdILvJjN/qDKZfE7qZJ6+XpGthmewQzVMe/+s56Q3s+uZxMJ1z0bj1WrmCUhzWvQfo/kr/oJ3ndcow0Tum+lQbssoEl+3eRmYzUmUMXn4g9vW2/JO2mV+f7cXIQSVwfyNC9J3WVaqbY95f0Liw=
+sidebar_class_name: "delete api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete the batch of specified access tokens"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/auth/v1/access-tokens/batch"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete the batch of specified access tokens
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          Delete access tokens
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          string
+          
+          
+        </div><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

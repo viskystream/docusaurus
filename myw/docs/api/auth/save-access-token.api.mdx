@@ -1,0 +1,534 @@
+---
+id: save-access-token
+title: "Create or update an access token"
+description: "Create or update an access token"
+sidebar_label: "Create or update an access token"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWFtv2zYU/isEX/Ywy5YvsWtjGJC2K5auQIvGXYEleaBEymYrkxpJ2XUF//edQ0qOfGlWDNuejBiBRB4enu/cPooVtSItjXRbOrur6OuP8x8TwYww8EqlcsIoltMOTXMplIMHVvJZMx6xNNWlch0rzFqmonkHMaNzYWfrLGKlW9KH3UOH6kIY5qRWN5zOqGVrcZ2mwtq5/iwULhF/lsK655qDLRXlwqZGFrigFidBnrQXSCNAmzOlABs12AW7w2JWFLlM/W69TxY1VNSmS7Fip6pbVhBpSWkFJ04TNBy0oRZBGA4bwlKjwQCYIG/kWuRb8rvkQpMav+3eo12Mc4m6Wf7OIGgnhaWzjOUWjHTbQsCmOvkkUncA4g4sBHFLwVdFa2FFnQd8YvgHJcFjbUNhnHhhkmmDJpNk660VigcEIY6n+BZMKusOUV2/u7H36iYjhREWRDtelWscJdKlBlclLP1MpPJzIFdoZUWX+HVKwxpGlNiAzoVQGH/v3FqDEa40Ckb00XLvxtpT1hmpFvD+JVroqB700QL8GgXFF7YqchxOk3g85QMeTQYjEY3iQRZN4TEaTftxJobjeMQndNdpHH2aCsawLdEZCQLei5ulTJeHyNcsl7y98R3mXiaMUFAEegNAMYi1rQyVgvRKqhsnVrBtv0NleKqOUO7AOObz8YY/ZZ/kTxt3rw7NEzGf8jEfR9PpZBKNWH8IjhGDSIzHSX8wGE5jnsGKJGGCJ8NJFIsh+G+SxtF0CE9X2SBOhvGz5OoZQ2RcZKzModLuTmF+A1mHgr0rBmtoWYL3EKlz+ZmshjS1iBFRBV/U4HJtWyPnK5CwDHpT8IjLu+RlsNQvGMYxyEGkeF2oeweN43iPA5vbAgK4w/kCSvM/NNFvUJetXPmyecEUSQSxhUhlJqE2sC4F47jdfP7myHA6iAfDKO7Dbx7HM//rxnH8x5n62fufQxVGuB9ixK6ADbk6qC/f4TOWimpHO+fbzs3LfasEeNBIstBqfJup+0HdbbRZMCW/eqA/WGK3gGh1BKQ/GI6uxpNn0xiGVZnnLMHx0Nm1Em8zT1DfBKXKVeKjVp0Gcj+EeunuAYuMQzmeRhaalt/xEcmSQcBQGLqgXMscVPrKQ4FcZgL92KSCX+AT4RDcYetPNHAjU7RVRl4ArILInCOoPZ8QFECPY4Y4DbRBNtItT/LwcPsKvKRxY+az+piBztNVcPzewmrnC1Y6H6w2ce/8TNO6feUP4vgUxdvf6IWiLxR9oegLRV8o+kLRF4r+vyl6dI6Vn0Pavg8f3r7eD2dfGIHUg0RVcE9C6gAEtkzhlho/6Att0dSCwff+jPaQu3rrfi+IR17cwjyWGJSmz5TSQHOhS+cKO+v1qiVoUGwlMJ/XzEhML9+mmolgfg2X5jplOU4hvofO/iLjFg8RYeHrj/NWm8ON0AI/j84OFx2d+uFVk6e4ateM/v16EG1fm/yT7cCvnEDesnRLak9hMPBY9P7xVuSXx2ypjxvfx6aPZHqeBFts9q/TkOcP37ubTv1UP2w63WPzqJtAXZ5N8bWKBdwkVaZxFPMq5G2/e9VF3E0xhO7+SpeKh1Z+DdlJbkO3P+me7UnyK4QG0pAc3lXByRWC5EMREpMGHvEbIZCDzN5sNt3cz69xvuvWPcwaPAyz1J0oIee1nGgAFVh0K6ZaKr6jZA/Q7tPViS+uV+RwyPScYzzvh2q+o/4WD6qyT5t0aSoaYuxrEISqKmFWfDD5bofDkLdmG84fTTXjGyhfAln6G8aKfhZbNDp8FkRzNAXF89KfV44/EZAnwgoMR+GelH1oNad3b2/nmLX13eJKc1xj2AaP9/B/Ru/hj+IlJWrwzcOPVzRnalGyBcoHvf4AiP549N1RabdpkKlty8qfnnuBcIX5M0wENCEywHq73V9UG1BL
+sidebar_class_name: "post api-method"
+info_path: docs/api/auth/video-foundation-auth-service
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or update an access token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/v1/access-tokens"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create or update an access token
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><strong
+          className={"openapi-schema__required"}
+        >
+          required
+        </strong>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":"1rem","marginBottom":"1rem"}}
+        >
+          
+          
+          save Access Token
+          
+          
+        </div>
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"token"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"description":"Unique authentication token for use by the end user client to authenticate against Lively Video APIs\nIf present, the token is echoed back in the response. \nIf not, a newly generated token is returned on the response.\n","type":"string","x-go-type":"TokenUnion","example":"cb069d2d-724e-402f-9724-4910fe3604d7"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"scopes"}
+          required={true}
+          schemaName={"string[]"}
+          qualifierMessage={"**Possible values:** `>= 1`"}
+          schema={{"description":"Array of scopes for which the token is valid","example":["conference-owner"],"type":"array","minItems":1,"items":{"type":"string"}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"accessIds"}
+          required={false}
+          schemaName={"uuid[]"}
+          qualifierMessage={undefined}
+          schema={{"description":"Array of ids for which the token is valid\n","example":["e0d9d6d6-9977-4a13-97e2-e66b122390df","bbaedb37-0e3e-47c0-933e-5f20b308b58a"],"default":[],"type":"array","items":{"type":"string","format":"uuid"}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"ttl"}
+          required={false}
+          schemaName={"integer"}
+          qualifierMessage={undefined}
+          schema={{"description":"Users of the access token lose access to Lively Video services after the ttl. Defaults to 300 seconds.\n","example":600,"type":"integer"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"expire"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"description":"Users of the access token lose access to Lively Video services after the expiration time. \nCan be specified instead of TTL.\n","example":"2023-01-01T00:00:00.000Z","type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <strong>
+                userId
+              </strong><span
+                style={{"opacity":"0.6"}}
+              >
+                 object
+              </span><strong
+                style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-nullable)"}}
+              >
+                 nullable
+              </strong>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                Unique ID used to identify the user in the client organization's system
+                
+                
+                
+              </div>
+            </div><div>
+              <span
+                className={"badge badge--info"}
+              >
+                oneOf
+              </span><SchemaTabs>
+                <TabItem
+                  label={"MOD1"}
+                  value={"0-item-properties"}
+                >
+                  <div
+                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                  >
+                    
+                    
+                    string
+                    
+                    
+                  </div>
+                </TabItem><TabItem
+                  label={"MOD2"}
+                  value={"1-item-properties"}
+                >
+                  <div
+                    style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                  >
+                    
+                    
+                    integer
+                    
+                    
+                  </div>
+                </TabItem>
+              </SchemaTabs>
+            </div>
+          </details>
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"admin"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"description":"If true, the user has admin privilege for the lifetime of the user token\n","example":false,"type":"boolean","default":false}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  data
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <div
+                style={{"marginTop":".5rem","marginBottom":".5rem"}}
+              >
+                
+                
+                Additional data to be stored with the access token
+                
+                
+                
+              </div><SchemaItem
+                name={"property name*"}
+                required={false}
+                schemaName={"any"}
+                qualifierMessage={undefined}
+                schema={{"description":"Additional data to be stored with the access token\n","example":{"foo":"bar"},"type":"object","additionalProperties":true,"default":{}}}
+                collapsible={false}
+                discriminator={false}
+              >
+                
+              </SchemaItem>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          OK
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"token"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Unique authentication token for use by the end user client to authenticate against Lively Video APIs\nIf present, the token is echoed back in the response. \nIf not, a newly generated token is returned on the response.\n","type":"string","x-go-type":"TokenUnion","example":"cb069d2d-724e-402f-9724-4910fe3604d7"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"scopes"}
+                        required={true}
+                        schemaName={"string[]"}
+                        qualifierMessage={"**Possible values:** `>= 1`"}
+                        schema={{"description":"Array of scopes for which the token is valid","example":["conference-owner"],"type":"array","minItems":1,"items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"accessIds"}
+                        required={false}
+                        schemaName={"uuid[]"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Array of ids for which the token is valid\n","example":["e0d9d6d6-9977-4a13-97e2-e66b122390df","bbaedb37-0e3e-47c0-933e-5f20b308b58a"],"default":[],"type":"array","items":{"type":"string","format":"uuid"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"ttl"}
+                        required={false}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Users of the access token lose access to Lively Video services after the ttl. Defaults to 300 seconds.\n","example":600,"type":"integer"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"expire"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"Users of the access token lose access to Lively Video services after the expiration time. \nCan be specified instead of TTL.\n","example":"2023-01-01T00:00:00.000Z","type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <strong>
+                              userId
+                            </strong><span
+                              style={{"opacity":"0.6"}}
+                            >
+                               object
+                            </span><strong
+                              style={{"fontSize":"var(--ifm-code-font-size)","color":"var(--openapi-nullable)"}}
+                            >
+                               nullable
+                            </strong>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Unique ID used to identify the user in the client organization's system
+                              
+                              
+                              
+                            </div>
+                          </div><div>
+                            <span
+                              className={"badge badge--info"}
+                            >
+                              oneOf
+                            </span><SchemaTabs>
+                              <TabItem
+                                label={"MOD1"}
+                                value={"0-item-properties"}
+                              >
+                                <div
+                                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                >
+                                  
+                                  
+                                  string
+                                  
+                                  
+                                </div>
+                              </TabItem><TabItem
+                                label={"MOD2"}
+                                value={"1-item-properties"}
+                              >
+                                <div
+                                  style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                                >
+                                  
+                                  
+                                  integer
+                                  
+                                  
+                                </div>
+                              </TabItem>
+                            </SchemaTabs>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"admin"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"description":"If true, the user has admin privilege for the lifetime of the user token\n","example":false,"type":"boolean","default":false}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                data
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <div
+                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                            >
+                              
+                              
+                              Additional data to be stored with the access token
+                              
+                              
+                              
+                            </div><SchemaItem
+                              name={"property name*"}
+                              required={false}
+                              schemaName={"any"}
+                              qualifierMessage={undefined}
+                              schema={{"description":"Additional data to be stored with the access token\n","example":{"foo":"bar"},"type":"object","additionalProperties":true,"default":{}}}
+                              collapsible={false}
+                              discriminator={false}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"token\": \"cb069d2d-724e-402f-9724-4910fe3604d7\",\n  \"scopes\": [\n    \"conference-owner\"\n  ],\n  \"accessIds\": [\n    \"e0d9d6d6-9977-4a13-97e2-e66b122390df\",\n    \"bbaedb37-0e3e-47c0-933e-5f20b308b58a\"\n  ],\n  \"ttl\": 600,\n  \"expire\": \"2023-01-01T00:00:00.000Z\",\n  \"userId\": \"string\",\n  \"admin\": false,\n  \"data\": {\n    \"foo\": \"bar\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem><TabItem
+        label={"400"}
+        value={"400"}
+      >
+        <div>
+          
+          
+          Bad Request
+          
+          
+        </div><div>
+          
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

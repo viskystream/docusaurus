@@ -1,0 +1,2633 @@
+openapi: 3.0.3
+info:
+  title: Eventdoor Service - OpenAPI 3.0
+  description: Eventdoor Service
+  license:
+    name: LivelyVideo
+    url: https://www.livelyvideo.tv/
+  contact:
+    name: Lively Video
+    url: https://livelyvideo.tv/
+  version: 0.3.0-rc.26
+servers:
+  - url: https://{hostname}/{appname}/api/{version}
+    variables:
+      hostname:
+        default: localhost
+      appname:
+        default: eventdoor
+      version:
+        default: v1
+tags:
+  - name: Profiles
+    description: Access Profiles
+  - name: ProfilesEvents
+    description: Access Profiles Events
+  - name: Events
+    description: Access Events
+  - name: ProfilesChannel
+    description: Access Profiles Channel
+  - name: AccessTokens
+    description: Access Tokens
+  - name: Connections
+    description: Connections
+paths:
+  /health:
+    get:
+      summary: Service health endpoint
+      operationId: getHealth
+      x-eov-operation-handler: controllers/getHealth
+      responses:
+        "200":
+          description: Returns Health info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /origins:
+    get:
+      tags:
+        - Origins
+      summary: Get origin urls
+      operationId: getOriginUrl
+      x-eov-operation-handler: controllers/getOriginUrl
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OriginsResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /access-tokens:
+    post:
+      tags:
+        - AccessTokens
+      summary: Get access token
+      operationId: getAccessToken
+      x-eov-operation-handler: controllers/getAccessToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccessToken"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /access-tokens/channel:
+    post:
+      tags:
+        - AccessTokens
+      summary: Get access token and create chat user
+      operationId: createChannelToken
+      x-eov-operation-handler: controllers/access-tokens/createChannelToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChannelAccessToken"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /access-tokens/chat:
+    post:
+      tags:
+        - AccessTokens
+      summary: Create access token
+      operationId: createChatToken
+      x-eov-operation-handler: controllers/access-tokens/createChatToken
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /access-tokens/studio:
+    post:
+      tags:
+        - AccessTokens
+      summary: Get access token
+      operationId: createStudioToken
+      x-eov-operation-handler: controllers/access-tokens/createStudioToken
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessToken"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "422":
+          $ref: "#/components/responses/ValidationError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/accounts/{userSlug}":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+    put:
+      tags:
+        - Accounts
+      summary: Update username for a given user
+      description: Update the username for a given user in Keycloak. This will also
+        update the username in the database if the user exists.
+      operationId: updateUsername
+      x-eov-operation-handler: controllers/profiles/updateUsername
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Profile"
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileResponse"
+        "400":
+          description: Malform
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/tickets":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEvents
+      summary: Get the list of tickets for a given event for a broadcaster
+      operationId: getBroadcasterEventTickets
+      x-eov-operation-handler: controllers/profiles/events/tickets/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/TicketResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/tips":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEvents
+      summary: Get the list of tips for a given event for a broadcaster
+      operationId: getBroadcasterEventTips
+      x-eov-operation-handler: controllers/profiles/events/tips/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/TipResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /accounts/connections/stripe/session:
+    post:
+      tags:
+        - Connections
+      summary: Create a stripe session for connect components
+      operationId: createStripeSession
+      x-eov-operation-handler: controllers/connections/stripe/session
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  client_secret:
+                    type: string
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /accounts/connections/stripe:
+    get:
+      tags:
+        - Connections
+      summary: Continue stripe onboarding with account link
+      operationId: getStripeConnection
+      x-eov-operation-handler: controllers/connections/stripe/get
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeConnectedAccount"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      tags:
+        - Connections
+      summary: Continue stripe onboarding with account link
+      operationId: updateStripeConnection
+      x-eov-operation-handler: controllers/connections/stripe/update
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeAccountLink"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - Connections
+      summary: Start stripe onboarding with account link
+      operationId: createStripeConnection
+      x-eov-operation-handler: controllers/connections/stripe/create
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeAccountLink"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      tags:
+        - Connections
+      summary: Start stripe onboarding with account link
+      operationId: deleteStripeConnection
+      x-eov-operation-handler: controllers/connections/stripe/delete
+      security:
+        - JWT: []
+      responses:
+        "204":
+          description: Stripe connection deleted successfully
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+    post:
+      tags:
+        - Profiles
+      summary: Enable profile for user
+      description: Promote user to broadcaster and create default profile. On success
+        user will be redirected to "studio.eventdoor.com" to manage their
+        profile.
+      operationId: createProfile
+      x-eov-operation-handler: controllers/profiles/create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Profile"
+      security:
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    get:
+      tags:
+        - Profiles
+      summary: Get profile
+      operationId: getProfile
+      x-eov-operation-handler: controllers/profiles/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      tags:
+        - Profiles
+      summary: Update profile
+      description: Update profile
+      operationId: updateProfile
+      x-eov-operation-handler: controllers/profiles/update
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.profile.management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Profile"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfileResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      tags:
+        - Profiles
+      summary: Delete profile
+      description: Delete profile
+      operationId: deleteProfile
+      x-eov-operation-handler: controllers/profiles/delete
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+      responses:
+        "204":
+          description: Profile deleted successfully
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/limitQuery"
+      - $ref: "#/components/parameters/offsetQuery"
+      - $ref: "#/components/parameters/timeFrameQuery"
+      - $ref: "#/components/parameters/publishedQuery"
+    get:
+      tags:
+        - ProfilesEvents
+      summary: List all profiles events
+      operationId: listProfilesEvents
+      x-eov-operation-handler: controllers/profiles/events/list
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/EventResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - ProfilesEvents
+      summary: Create profiles event
+      operationId: createProfilesEvent
+      x-eov-operation-handler: controllers/profiles/events/create
+      security:
+        - JWT:
+            - roles:eventdoorstudio.event.management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEvents
+      summary: Get profiles event
+      operationId: getProfilesEvent
+      x-eov-operation-handler: controllers/profiles/events/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      tags:
+        - ProfilesEvents
+      summary: Update profiles event
+      operationId: updateProfilesEvent
+      x-eov-operation-handler: controllers/profiles/events/update
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.event.management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      tags:
+        - ProfilesEvents
+      summary: Delete profiles event
+      operationId: deleteProfilesEvent
+      x-eov-operation-handler: controllers/profiles/events/delete
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.event.management
+      responses:
+        "200":
+          description: Successful operation
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/ticket":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEventTicket
+      summary: Get event ticket data
+      operationId: getProfilesEventTicket
+      x-eov-operation-handler: controllers/profiles/events/tickets/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TicketResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - ProfilesEventTicket
+      summary: Purchase an event ticket
+      operationId: createProfilesEventTicket
+      x-eov-operation-handler: controllers/profiles/events/tickets/create
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TicketResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/ticket/refund":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    post:
+      tags:
+        - ProfilesEventTicket
+      summary: Stripe refund for a ticket
+      operationId: refundProfilesEventTicket
+      x-eov-operation-handler: controllers/profiles/events/tickets/refund
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StripeRefundRequest"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeRefundResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/tip":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEventTip
+      summary: Get event top data
+      operationId: getProfilesEventTip
+      x-eov-operation-handler: controllers/profiles/events/tips/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TipResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - ProfilesEventTip
+      summary: Tip an event
+      operationId: createProfilesEventTip
+      x-eov-operation-handler: controllers/profiles/events/tips/create
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TipResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/payout":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEventPayout
+      summary: Get event payout data
+      operationId: getProfilesEventPayout
+      x-eov-operation-handler: controllers/profiles/events/transfers/get
+      security:
+        - JWT:
+            - roles:eventdoorstudio.event.management
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PayoutResponse"
+        "400":
+          $ref: "#/components/responses/BadRequestError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "409":
+          $ref: "#/components/responses/ConflictError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - Earnings
+      summary: Payout for an event
+      operationId: payouts
+      x-eov-operation-handler: controllers/profiles/events/transfers/payouts
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Payout id
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/accounts/{userSlug}/transactions":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/limitQuery"
+      - $ref: "#/components/parameters/offsetQuery"
+    get:
+      tags:
+        - Accounts
+      summary: List all transactions done by a given user
+      operationId: listUsersTransactions
+      x-eov-operation-handler: controllers/profiles/events/transactions/list
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/UserTransactionsResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/accounts/{userSlug}/accessible-events":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/limitQuery"
+      - $ref: "#/components/parameters/offsetQuery"
+    get:
+      tags:
+        - Accounts
+      summary: List all events accessible by a given user
+      operationId: listUsersEventAccess
+      x-eov-operation-handler: controllers/profiles/events/access
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/EventResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/streams":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+      - $ref: "#/components/parameters/liveQuery"
+      - $ref: "#/components/parameters/limitQuery"
+      - $ref: "#/components/parameters/offsetQuery"
+    get:
+      tags:
+        - streams
+      summary: Get all streams
+      operationId: getForEvent
+      x-eov-operation-handler: controllers/streams/getForEvent
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/EventStreamsResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/events/{eventSlug}/streams/{streamKind}":
+    parameters:
+      - $ref: "#/components/parameters/streamKindParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+      - $ref: "#/components/parameters/userSlugParam"
+    get:
+      tags:
+        - streams
+      summary: Get stream
+      operationId: getStream
+      x-eov-operation-handler: controllers/streams/get
+      security:
+        - JWT:
+            - roles:eventdoorstudio.streams.produce
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Streamer"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - streams
+      summary: Refresh private key
+      operationId: refresh
+      x-eov-operation-handler: controllers/streams/refresh
+      security:
+        - JWT:
+            - roles:eventdoorstudio.streams.produce
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Streamer"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/channel":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+    get:
+      tags:
+        - ProfilesChannel
+      summary: Get channel
+      operationId: getChannel
+      x-eov-operation-handler: controllers/profiles/channel/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChannelResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - ProfilesChannel
+      summary: Create channel
+      operationId: createChannel
+      x-eov-operation-handler: controllers/profiles/channel/create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Channel"
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.channel.management
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChannelResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      tags:
+        - ProfilesChannel
+      summary: Update profiles channel
+      operationId: updateChannel
+      x-eov-operation-handler: controllers/profiles/channel/update
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.channel.management
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Channel"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChannelResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      tags:
+        - ChannelDelete
+      summary: Delete channel
+      description: Soft delete a channel
+      operationId: deleteChannel
+      x-eov-operation-handler: controllers/profiles/channel/delete
+      security:
+        - JWT:
+            - groups:eventdoorstudio.admin
+            - roles:eventdoorstudio.channel.management
+      responses:
+        "204":
+          description: Channel deleted successfully
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/channel/streams":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/liveQuery"
+      - $ref: "#/components/parameters/limitQuery"
+      - $ref: "#/components/parameters/offsetQuery"
+    get:
+      tags:
+        - ProfilesChannel
+      summary: Get all channel streams
+      operationId: listChannelStreams
+      x-eov-operation-handler: controllers/profiles/channel/streams/list
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/EventStreamsResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/profiles/{userSlug}/channel/streams/{streamKind}":
+    parameters:
+      - $ref: "#/components/parameters/streamKindParam"
+      - $ref: "#/components/parameters/userSlugParam"
+    get:
+      tags:
+        - ProfilesChannel
+      summary: Get channel stream
+      operationId: getChannelStream
+      x-eov-operation-handler: controllers/profiles/channel/streams/get
+      security:
+        - JWT:
+            - roles:eventdoorstudio.streams.produce
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Streamer"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      tags:
+        - ProfilesChannel
+      summary: Refresh private key
+      operationId: refreshChannelStream
+      x-eov-operation-handler: controllers/profiles/channel/streams/refresh
+      security:
+        - JWT:
+            - roles:eventdoorstudio.streams.produce
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Streamer"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /events:
+    parameters:
+      - $ref: "#/components/parameters/userSlugQuery"
+    get:
+      tags:
+        - Events
+      summary: List all events
+      operationId: listEvents
+      x-eov-operation-handler: controllers/events/list
+      parameters:
+        - $ref: "#/components/parameters/limitQuery"
+        - $ref: "#/components/parameters/offsetQuery"
+        - $ref: "#/components/parameters/startDateQuery"
+        - $ref: "#/components/parameters/endDateQuery"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/EventResponse"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  "/streaming/{target}/{privateKey}":
+    parameters:
+      - $ref: "#/components/parameters/privateKeyParam"
+      - $ref: "#/components/parameters/targetParam"
+    put:
+      tags:
+        - streaming
+      summary: broadcastBegin
+      operationId: broadcastBegin
+      x-eov-operation-handler: controllers/streaming/broadcastBegin
+      description: Called on broadcast start; ensure the privateKey is allowed to begin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BroadcastBeginRequest"
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BroadcastBeginResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags:
+        - streaming
+      summary: broadcastEnd
+      operationId: broadcastEnd
+      x-eov-operation-handler: controllers/streaming/broadcastEnd
+      description: Called on broadcast end; mark stream as completed
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/{privateKey}/encoding/{encoding}":
+    parameters:
+      - $ref: "#/components/parameters/privateKeyParam"
+      - $ref: "#/components/parameters/encodingParam"
+      - $ref: "#/components/parameters/targetParam"
+    put:
+      tags:
+        - streaming
+      summary: formatBegin
+      operationId: formatBegin
+      x-eov-operation-handler: controllers/streaming/formatBegin
+      description: Called when a format/variant becomes available
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormatBeginRequest"
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+    delete:
+      tags:
+        - streaming
+      summary: formatEnd
+      operationId: formatEnd
+      x-eov-operation-handler: controllers/streaming/formatEnd
+      description: Called when a format/variant becomes unavailable
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Status"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/ping/bulk":
+    parameters:
+      - $ref: "#/components/parameters/targetParam"
+    put:
+      tags:
+        - streaming
+      summary: bulkPing
+      operationId: bulkPing
+      x-eov-operation-handler: controllers/streaming/bulkPing
+      description: Called periodically to check if broadcasts have changed state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BulkPingRequest"
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkPingResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/{publicKey}/auth/{accessToken}":
+    parameters:
+      - $ref: "#/components/parameters/publicKeyParam"
+      - $ref: "#/components/parameters/accessTokenParam"
+      - $ref: "#/components/parameters/targetParam"
+    get:
+      tags:
+        - streaming
+      summary: viewerAuth
+      operationId: viewerAuth
+      x-eov-operation-handler: controllers/streaming/viewerAuth
+      description: Called when a viewer being playback on an auth'd steam to check access
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                example: 1200
+                type: integer
+                description: the response body coming back here is NOT json, its a time to live
+                  (`TTL`) value indicated in seconds how long the accessToken is
+                  valid for
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/token/bulkvalidate":
+    parameters:
+      - $ref: "#/components/parameters/targetParam"
+    post:
+      tags:
+        - streaming
+      summary: tokenBulkValidate
+      operationId: tokenBulkValidate
+      x-eov-operation-handler: controllers/streaming/tokenBulkValidate
+      description: Bulk call for viewers auth'd steam to check access
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BulkValidateRequest"
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkValidateResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/{privateKey}/altKeys":
+    parameters:
+      - $ref: "#/components/parameters/privateKeyParam"
+      - $ref: "#/components/parameters/targetParam"
+    get:
+      tags:
+        - streaming
+      summary: broadcastAltKeys
+      operationId: broadcastAltKeys
+      x-eov-operation-handler: controllers/streaming/broadcastAltKeys
+      description: Used in special shadow cases when a broadcast has multiple privateKeys
+      responses:
+        "204":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/streaming/{target}/admin/lookup":
+    parameters:
+      - $ref: "#/components/parameters/targetParam"
+    get:
+      tags:
+        - streaming
+      summary: adminLookup
+      operationId: adminLookup
+      x-eov-operation-handler: controllers/streaming/adminLookup
+      description: Used by lgbx console to check/retreive all keys associated with a
+        broadcast
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received
+            successfully
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+  "/accounts/{userSlug}/notifications":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+    get:
+      tags:
+        - Accounts
+      summary: Get user notifications settings
+      operationId: getNotifications
+      x-eov-operation-handler: controllers/profiles/notifications/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationsResponse"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      tags:
+        - Accounts
+      summary: Update user notifications settings
+      operationId: updateNotifications
+      x-eov-operation-handler: controllers/profiles/notifications/update
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationsPayload"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationsResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  "/profiles/{userSlug}/events/{eventSlug}/settings":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - UserEventSettings
+      summary: Get user event settings
+      operationId: getUserEventSettings
+      x-eov-operation-handler: controllers/profiles/events/settings/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserEventSettingsResponse"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    put:
+      tags:
+        - UserEventSettings
+      summary: Update user event settings
+      operationId: updateUserEventSettings
+      x-eov-operation-handler: controllers/profiles/events/settings/update
+      security:
+        - {}
+        - JWT: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserEventSettings"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserEventSettingsResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "403":
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  "/profiles/{userSlug}/events/{eventSlug}/liked":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+      - $ref: "#/components/parameters/eventSlugParam"
+    get:
+      tags:
+        - ProfilesEvents
+      summary: Get list of users who have liked a given event
+      operationId: getUserEventSpecificSettings
+      x-eov-operation-handler: controllers/profiles/events/settings/get
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/ProfileResponse"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  "/accounts/{userSlug}/events/liked":
+    parameters:
+      - $ref: "#/components/parameters/userSlugParam"
+    get:
+      tags:
+        - Accounts
+      summary: Get list of events liked by a user
+      operationId: listUsersLikedEvents
+      x-eov-operation-handler: controllers/profiles/events/listUsersLiked
+      security:
+        - {}
+        - JWT: []
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                items:
+                  anyOf:
+                    - $ref: "#/components/schemas/EventResponse"
+        "404":
+          description: Not Found Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /webhooks/stripe/connect:
+    post:
+      tags:
+        - webhooks
+      summary: Stripe connect webbook
+      operationId: stripeConnectWebhook
+      x-eov-operation-handler: controllers/webhooks/stripe/connect
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeWebhookResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+  /webhooks/stripe/account:
+    post:
+      tags:
+        - webhooks
+      summary: Stripe account webbook
+      operationId: stripeAccountWebhook
+      x-eov-operation-handler: controllers/webhooks/stripe/account
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StripeWebhookResponse"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "404":
+          $ref: "#/components/responses/NotFoundError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+components:
+  schemas:
+    OriginsResponse:
+      type: object
+      description: Object containing the list of origin urls
+      properties:
+        origins:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+    ChannelAccessToken:
+      type: object
+      required:
+        - username
+      properties:
+        username:
+          type: string
+    AccessToken:
+      type: object
+      required:
+        - scopes
+        - userId
+      properties:
+        id:
+          type: string
+        data:
+          type: object
+        token:
+          type: string
+        scopes:
+          type: array
+          items:
+            type: string
+        expire:
+          type: string
+          format: date-time
+        userId:
+          type: string
+        chatUser:
+          type: object
+        admin:
+          type: boolean
+        accessIds:
+          type: array
+          items:
+            type: string
+        ttl:
+          type: integer
+    Profile:
+      type: object
+      description: Profile object
+      properties:
+        displayName:
+          description: Personalize the profile page and OpenGraph result.
+          example: Lisa Marshall
+          type: string
+          nullable: true
+        username:
+          type: string
+          description: Handle and slug.
+          example: lisamarshall
+        email:
+          type: string
+          description: Email address of the user.
+          nullable: true
+          format: email
+        bio:
+          type: string
+          nullable: true
+        avatarUrl:
+          description: Personalize the profile page and OpenGraph result.
+          format: uri
+          type: string
+          nullable: true
+        posterUrl:
+          format: uri
+          type: string
+          nullable: true
+        roles:
+          type: array
+          items:
+            type: string
+        default:
+          type: boolean
+          description: If the user profile is the default profile for the account
+          nullable: true
+        private:
+          type: boolean
+          description: If the user profile is private or public
+          nullable: true
+    ProfileResponse:
+      allOf:
+        - $ref: "#/components/schemas/Profile"
+        - type: object
+          required:
+            - id
+            - username
+          description: Profile object
+          properties:
+            id:
+              type: string
+              format: uuid
+    Event:
+      type: object
+      properties:
+        eventType:
+          $ref: "#/components/schemas/EventType"
+        title:
+          type: string
+          example: First Live Concert!
+          maxLength: 72
+        description:
+          type: string
+          example: Join me for my first live concert! I will be performing a six song set
+            from my new album!
+          maxLength: 240
+        about:
+          type: string
+        start:
+          type: string
+          description: Event start time.
+          format: date-time
+        end:
+          type: string
+          description: Event end time. Shown as duration.
+          format: date-time
+        open:
+          description: Time before start time thats users with access are allowed to chat
+            and see the player.
+          format: date-time
+          type: string
+          nullable: true
+        close:
+          description: Time past end time that users are allowed to chat and see the
+            player. Additionally used by broadcaster to end an event early. "End
+            Event" button in studio dashboard.
+          format: date-time
+          type: string
+          nullable: true
+        countdown:
+          type: boolean
+          description: Whether to display a countdown.
+        posterUrl:
+          description: Replaces the video player with an image during offline or countdown
+            state
+          format: uri
+          type: string
+          nullable: true
+        private:
+          type: boolean
+          description: Whether event is private.
+          nullable: true
+        ticketed:
+          type: boolean
+          description: Whether event requires a ticket.
+          nullable: true
+        ticketPrice:
+          type: number
+          description: Ticket price
+          nullable: true
+        ticketCurrency:
+          type: string
+          description: Ticket currency
+          nullable: true
+        published:
+          type: boolean
+          description: Whether event is published.
+          nullable: true
+        access:
+          type: boolean
+          description: Whether event is accessible by the logged in or guest user.
+          nullable: true
+    EventResponse:
+      description: Generated fields
+      allOf:
+        - $ref: "#/components/schemas/Event"
+        - type: object
+          required:
+            - id
+            - slug
+            - ownerUsername
+          description: Fields only shown to owner or admin.
+          properties:
+            id:
+              type: string
+              format: uuid
+            slug:
+              type: string
+              maxLength: 72
+            ownerUsername:
+              type: string
+    UserEventSettings:
+      description: User settings for an event
+      type: object
+      properties:
+        liked:
+          type: boolean
+          description: Whether user has liked the event
+        notification:
+          type: boolean
+          description: Whether user wants to receive notifications for the event
+    UserEventSettingsResponse:
+      description: Generated fields only shown to owner or admin.
+      type: object
+      properties:
+        liked:
+          type: boolean
+        notification:
+          type: boolean
+    Ticket:
+      type: object
+      required:
+        - id
+        - eventSlug
+        - ownerUsername
+        - price
+        - currency
+        - stripeId
+        - status
+        - created
+      properties:
+        id:
+          type: string
+        purchaserUsername:
+          type: string
+        ownerUsername:
+          type: string
+        eventSlug:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        stripeId:
+          type: string
+        status:
+          type: string
+          enum:
+            - canceled
+            - processing
+            - requires_action
+            - requires_capture
+            - requires_confirmation
+            - requires_payment_method
+            - succeeded
+            - refunded
+        created:
+          type: string
+          format: date-time
+      description: Ticket details
+    TicketResponse:
+      description: Ticket response
+      allOf:
+        - $ref: "#/components/schemas/Ticket"
+        - type: object
+          required:
+            - purchaserUsername
+          description: Adding purchaser username
+          properties:
+            purchaserUsername:
+              type: string
+            clientSecret:
+              type: string
+    StripeConnectedAccount:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier for the Stripe connected account.
+        profileId:
+          type: string
+          description: The profile ID associated with the Stripe connected account.
+        stripeAccountId:
+          type: string
+          description: The Stripe account ID.
+          nullable: true
+        payoutsEnabled:
+          type: boolean
+          description: Flag indicating whether payouts are enabled for the Stripe account.
+        chargesEnabled:
+          type: boolean
+          description: Flag indicating whether charges are enabled for the Stripe account.
+        detailsSubmitted:
+          type: boolean
+          description: Flag indicating whether details have been submitted for the Stripe
+            account.
+    StripeAccountLink:
+      type: object
+      properties:
+        object:
+          type: string
+          enum:
+            - account_link
+        created:
+          type: integer
+          format: int64
+          description: Time at which the account link was created, represented as Unix
+            timestamp.
+        expires_at:
+          type: integer
+          format: int64
+          description: Expiration time for the account link, represented as Unix timestamp.
+        url:
+          type: string
+          format: uri
+          description: The URL of the account link.
+      required:
+        - object
+        - created
+        - expires_at
+        - url
+    StripeWebhookResponse:
+      description: Stripe Webhook Response
+      type: object
+      additionalProperties: true
+    StripeRefundRequest:
+      description: Stripe Refund Request
+      type: object
+      additionalProperties: true
+    StripeRefundResponse:
+      description: Stripe Refund Response
+      type: object
+      additionalProperties: true
+    Tip:
+      type: object
+      required:
+        - id
+        - eventSlug
+        - ownerUsername
+        - amount
+        - currency
+        - stripeId
+        - status
+        - created
+      properties:
+        id:
+          type: string
+        purchaserUsername:
+          type: string
+        ownerUsername:
+          type: string
+        eventSlug:
+          type: string
+        message:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        stripeId:
+          type: string
+        status:
+          type: string
+          enum:
+            - canceled
+            - processing
+            - requires_action
+            - requires_capture
+            - requires_confirmation
+            - requires_payment_method
+            - succeeded
+        created:
+          type: string
+          format: date-time
+      description: Tip details
+    TipResponse:
+      description: Generated fields
+      allOf:
+        - $ref: "#/components/schemas/Tip"
+        - type: object
+          required:
+            - purchaserUsername
+          description: Adding purchaser username
+          properties:
+            purchaserUsername:
+              type: string
+            clientSecret:
+              type: string
+    PayoutResponse:
+      description: Payout response
+      type: object
+      required:
+        - ticketTotal
+        - tipTotal
+        - stripeFee
+        - stripeFlatFee
+        - platformFee
+        - eventTotal
+        - minimumPayoutAmount
+        - ticketsSold
+        - tipsReceived
+        - totalLikes
+        - paidOut
+      properties:
+        ticketTotal:
+          type: number
+        tipTotal:
+          type: number
+        stripeFee:
+          type: number
+        stripeFlatFee:
+          type: number
+        platformFee:
+          type: number
+        eventTotal:
+          type: number
+        minimumPayoutAmount:
+          type: number
+        ticketsSold:
+          type: number
+        tipsReceived:
+          type: number
+        totalLikes:
+          type: number
+        paidOut:
+          type: boolean
+    UserTransactionsResponse:
+      description: Lists all transactions for a user
+      type: object
+      properties:
+        tickets:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ticket"
+        tips:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tip"
+      required:
+        - tickets
+        - tips
+    EventType:
+      type: object
+      required:
+        - id
+        - name
+      description: Informs the client what type of live streaming interface to render
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          enum:
+            - freeManifest
+            - paidManifest
+    Channel:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 72
+        displayName:
+          type: string
+          maxLength: 72
+        avatarUrl:
+          description: Personalize the channel page and OpenGraph result.
+          format: uri
+          type: string
+          nullable: true
+        posterUrl:
+          description: Personalize the channel page and OpenGraph result.
+          format: uri
+          type: string
+          nullable: true
+        metadata:
+          description: Any JSON value.
+          type: object
+          nullable: true
+    ChannelResponse:
+      allOf:
+        - $ref: "#/components/schemas/Channel"
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+    StreamerPublicResponse:
+      type: object
+      required:
+        - live
+        - kind
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 9c3fdfa5-3fc7-4ff8-a136-9a27a8335135
+          maxLength: 36
+        ownerSlug:
+          type: string
+        eventSlug:
+          type: string
+        live:
+          type: boolean
+          description: Whether stream is currently live
+        kind:
+          type: string
+          description: What type of stream this is
+          enum:
+            - USER
+            - OVERLAY
+            - STUDIO
+        privateKey:
+          type: string
+          format: uuid
+          example: d93e19eb-4000-40c0-ba55-b37d4effdae5
+          maxLength: 36
+        publicKey:
+          type: string
+          format: uuid
+          example: 0b9a29c4-e48d-4ca0-b609-4f93624ca74c
+          maxLength: 36
+          nullable: true
+        manifestUrl:
+          type: string
+          example: https://...
+          description: url for viewer playback
+          nullable: true
+    EventStreamsResponse:
+      type: object
+      required:
+        - id
+        - kind
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 9c3fdfa5-3fc7-4ff8-a136-9a27a8335135
+          maxLength: 36
+        kind:
+          type: string
+          description: What type of stream this is
+          enum:
+            - USER
+            - OVERLAY
+            - STUDIO
+        privateKey:
+          type: string
+          format: uuid
+          example: d93e19eb-4000-40c0-ba55-b37d4effdae5
+          maxLength: 36
+        publicKey:
+          nullable: true
+          type: string
+          format: uuid
+          example: 0b9a29c4-e48d-4ca0-b609-4f93624ca74c
+          maxLength: 36
+        manifestUrl:
+          nullable: true
+          type: string
+          example: https://...
+          description: url for viewer playback
+    Streamer:
+      allOf:
+        - $ref: "#/components/schemas/StreamerPublicResponse"
+        - type: object
+          required:
+            - privateKey
+          properties:
+            privateKey:
+              type: string
+              format: uuid
+              example: d93e19eb-4000-40c0-ba55-b37d4effdae5
+              maxLength: 36
+            clientReferrer:
+              type: string
+              description: client referrer
+    BroadcastBeginRequest:
+      type: object
+      properties:
+        clientIP:
+          type: string
+          example: 0.0.0.0
+          description: ip of the broadaster
+        clientAgent:
+          type: string
+          description: client user agent
+        clientReferrer:
+          type: string
+          description: client referrer
+        clientEncoder:
+          type: string
+          example: FMLE
+          description: description of the broadcast encoder being used
+        originURL:
+          type: string
+          example: rtmp://...
+          description: url for playback from the origin
+        manifest:
+          type: string
+          example: https://...
+          description: url for viewer playback
+        manifestTemplate:
+          type: string
+          example: https://...
+    BroadcastBeginResponse:
+      type: object
+      properties:
+        userSlug:
+          type: string
+          example: demoUser
+          description: user display name in your system
+        needsAuth:
+          type: boolean
+          description: the authorization state of the stream (indicated with authorization
+            is required for playback)
+        broadcasterProfile:
+          type: string
+          example: high
+          description: profile name to use for transcoding (optional)
+        publicKey:
+          type: string
+          example: aec387b2-5588-438d-a423-d9b5be602ed5
+          description: the key to use when calling for the manifest for viewer playback
+    FormatBeginRequest:
+      type: object
+      properties:
+        publicKey:
+          type: string
+          example: foo
+          description: the key to use when calling for the manifest for viewer playback
+        videoCodec:
+          type: string
+          example: mp4
+          description: video codec for the format
+        audioCodec:
+          type: string
+          example: aac
+          description: audio codec for the format
+        manifest:
+          type: string
+          example: https://...
+          description: url for viewer playback
+        location:
+          type: string
+          example: https://...
+          description: url to directly playback or pull this format for internal use
+        clientEncoder:
+          type: string
+          example: FMLE
+          description: description of the broadcast encoder being used
+        encodings:
+          type: array
+          items:
+            type: object
+            properties:
+              isOriginal:
+                type: boolean
+                example: false
+                description: indication if this is the origin stream (not an encoded variant)
+              videoWidth:
+                example: 640
+                type: integer
+                description: video resolution width
+              videoHeight:
+                example: 360
+                type: integer
+                description: video resolution height
+              videoKbps:
+                example: 1200
+                type: integer
+                description: video streaming rate in kbps
+              audioKbps:
+                example: 96
+                type: integer
+                description: audio streaming rate in kbps
+              videoPts:
+                example: 12478
+                type: integer
+                description: current video presentation timestamp
+              audioPts:
+                example: 12478
+                type: integer
+                description: current audio presentation timestamp
+              collected:
+                example: 12478
+                type: integer
+                description: timestamp stats where collected
+              location:
+                example: https://...
+                type: string
+                description: url to directly playback or pull this format for internal use
+    BulkPingRequest:
+      type: object
+      properties:
+        privateKeys:
+          type: array
+          description: array of private keys to validate
+          items:
+            type: string
+    BulkPingResponse:
+      type: object
+      description: response to bulk ping request
+      additionalProperties:
+        type: object
+        properties:
+          statusCode:
+            type: integer
+            example: 200
+          status:
+            type: string
+            example: OK
+          message:
+            type: string
+            example: status message
+          needsAuth:
+            type: boolean
+            description: the authorization state of the stream (indicated with authorization
+              is required for playback)
+          broadcasterProfile:
+            type: string
+            example: high
+            description: status code for indivdual stream
+    BulkValidateRequest:
+      type: object
+      description: array of private keys to validate
+      additionalProperties:
+        type: array
+        description: array of tokens to validate
+        items:
+          type: string
+    BulkValidateResponse:
+      type: object
+      description: response to bulk validate request
+      additionalProperties:
+        type: object
+        additionalProperties:
+          type: object
+          properties:
+            statusCode:
+              type: integer
+              example: 200
+            status:
+              type: boolean
+              example: true
+            message:
+              type: string
+              example: OK
+            ttl:
+              type: integer
+              description: ttl may or may not be returned
+    Status:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        message:
+          type: string
+          example: status message
+    Health:
+      type: object
+      required:
+        - healthy
+      properties:
+        healthy:
+          type: boolean
+          example: false
+    NotificationType:
+      type: object
+      properties:
+        email:
+          type: boolean
+        push:
+          type: boolean
+        text:
+          type: boolean
+    NotificationsPayload:
+      type: object
+      properties:
+        liked:
+          $ref: "#/components/schemas/NotificationType"
+        marketing:
+          $ref: "#/components/schemas/NotificationType"
+        ticketed:
+          $ref: "#/components/schemas/NotificationType"
+    NotificationsResponse:
+      type: object
+      properties:
+        liked:
+          $ref: "#/components/schemas/NotificationType"
+        marketing:
+          $ref: "#/components/schemas/NotificationType"
+        ticketed:
+          $ref: "#/components/schemas/NotificationType"
+    Error:
+      type: object
+      x-go-type: apperrors.Error
+      x-go-type-import:
+        path: github.com/LivelyVideo/service-definitions/errors
+        name: apperrors
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message for the end user
+        errorCode:
+          type: string
+          description: Code that can be set that supplies a specific reason for why a
+            request failed
+        invalidFields:
+          type: array
+          description: Specific error scoped to a field
+          items:
+            $ref: "#/components/schemas/InvalidField"
+        internal:
+          type: string
+          description: Internal user only
+    InvalidField:
+      type: object
+      x-go-type: apperrors.InvalidField
+      x-go-type-import:
+        path: github.com/LivelyVideo/service-definitions/errors
+        name: apperrors
+      required:
+        - name
+        - reason
+      properties:
+        name:
+          type: string
+        reason:
+          type: string
+        errorCode:
+          type: string
+  parameters:
+    offsetQuery:
+      name: offset
+      in: query
+      required: false
+      description: Number of items to skip before starting to return results
+      schema:
+        type: integer
+        minimum: 0
+    limitQuery:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of items to retrieve per page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+    timeFrameQuery:
+      name: timeFrame
+      in: query
+      required: false
+      description: Sort by time frame.
+      schema:
+        type: string
+        enum:
+          - past
+          - future
+    publishedQuery:
+      name: published
+      in: query
+      required: false
+      description: Filter by published status
+      schema:
+        type: boolean
+    liveQuery:
+      name: live
+      in: query
+      required: true
+      description: Whether you are query for live streams
+      schema:
+        type: boolean
+    startDateQuery:
+      name: startDate
+      in: query
+      required: false
+      description: Filter by start date
+      schema:
+        type: string
+        format: date
+    endDateQuery:
+      name: endDate
+      in: query
+      required: false
+      description: Filter by end date
+      schema:
+        type: string
+        format: date
+    userSlugQuery:
+      name: userSlug
+      in: query
+      required: false
+      description: Filter by user slug
+      schema:
+        type: string
+        maxLength: 72
+    userSlugParam:
+      in: path
+      name: userSlug
+      required: true
+      schema:
+        type: string
+    targetParam:
+      in: path
+      name: target
+      required: true
+      schema:
+        type: string
+    eventSlugParam:
+      in: path
+      name: eventSlug
+      required: true
+      schema:
+        type: string
+    publicKeyParam:
+      in: path
+      name: publicKey
+      required: true
+      schema:
+        type: string
+    privateKeyParam:
+      in: path
+      name: privateKey
+      required: true
+      schema:
+        type: string
+    encodingParam:
+      in: path
+      name: encoding
+      required: true
+      schema:
+        type: string
+    accessTokenParam:
+      in: path
+      name: accessToken
+      required: true
+      schema:
+        type: string
+    streamKindParam:
+      in: path
+      name: streamKind
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    ConflictError:
+      description: Conflict
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    BadRequestError:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ValidationError:
+      description: Validation Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    UnauthorizedError:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    ForbiddenError:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFoundError:
+      description: Not Found Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
