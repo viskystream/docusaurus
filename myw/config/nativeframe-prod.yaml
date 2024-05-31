@@ -1,0 +1,88 @@
+port: 8765
+logLevel: "debug"
+localDocs: false
+elastic:
+  endpoint: "https://devcenter-lsea2-kibana-client.livelyvideo.tv"
+  index: "documentation"
+companyName: "Native Frame"
+companyEmail: "support@nativeframe.com"
+globalHostUrl: "https://nativeframe-prod-usc1b.nativeframe.com"
+sportsUrl: "https://nativeframe-prod-usc1b-manifest2.nativeframe.com/live/sportsdemo.json"
+routes:
+  - name: Compliance
+    key: compliance
+    description: Review and report content or compliance issues with running streams
+    href: /apps/stream-monitor
+    icon: ClipboardDocumentCheckIcon
+    color: red
+    category:
+      name: Admin
+      key: admin
+    roles:
+      - basic-read
+  - name: Stream Console
+    key: stream-console
+    description: Live stream operations monitoring
+    href: /apps/stream-console
+    icon: CloudIcon
+    color: blue
+    category:
+      name: Admin
+      key: admin
+    roles:
+      - basic-read
+  - name: Pulse
+    key: stats
+    description: Real-time streaming stats dashboard
+    href: /apps/stats
+    icon: ChartBarIcon
+    color: yellow
+    category:
+      name: Admin
+      key: admin
+    roles:
+      - basic-read
+  - name: Webhook Events
+    key: webhook-events
+    description: Manage webhook settings and visualize event history
+    href: /apps/events
+    icon: FireIcon
+    color: green
+    category:
+      name: Admin
+      key: admin
+    roles:
+      - basic-read
+  - name: Kubernetes Dashboard
+    key: kubernetes-dashboard
+    description: Deploy and troubleshoot applications and manage cluster resources
+    href: /apps/kubernetes-dashboard/
+    icon: CubeIcon
+    color: sky
+    category:
+      name: Admin
+      key: admin
+    roles:
+      - kubernetes
+  - name: Demos
+    key: demos
+    description: Livestreaming demos to visualize product use cases
+    href: /apps/demos
+    icon: BeakerIcon
+    color: cyan
+    category:
+      name: Product
+      key: product
+    roles:
+      - basic-read
+  - name: Showcases
+    key: showcases
+    description: Product case studies to show real world applications
+    href: /apps/showcases
+    icon: PresentationChartLineIcon
+    color: orange
+    category:
+      name: Product
+      key: product
+    roles:
+      - basic-read

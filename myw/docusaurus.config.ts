@@ -130,7 +130,7 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
   plugins: [
-    './build/plugins/myCustomPlugin/index.js',
+    './build/src/plugins/myCustomPlugin/index.js',
     //require.resolve('./src/plugins/webpackPlugin.js'),
     [
       'docusaurus-plugin-openapi-docs',

@@ -5,7 +5,7 @@ import { RequestParams } from '@elastic/elasticsearch';
 import { RequestBody } from '@elastic/elasticsearch/lib/Transport';
 import type { RequestHandler } from 'express';
 import { log } from '../../log';
-import esClient from './lib/elasticSearchClient';
+import esClient from '../lib/elasticSearchClient';
 import { filterEsDocsByUserRole } from '../utils/filterEsDocsByUserRole';
 import { ESDoc } from '../utils/types';
 

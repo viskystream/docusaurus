@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: Example API
+  description: "Boilerplate openAPI spec"
+  version: 1.0.0
+servers:
+  - url: https://api.example.com # Keep this as is in your spec, this will be overwritten for specific domains
+paths:
+  /api/foo:
+    get:
+      tags:
+        - foo
+      summary: Example route
+      operationId: routeFunction
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Example"
+        "400":
+          description: Invalid status value
+
+components:
+  schemas:
+    Example:
+      type: object
+      properties:
+        foo:
+          type: array
+          items:
+            type: string
+        bar:
+          type: integer

@@ -25,7 +25,7 @@ import heading from '../schema/Heading.markdoc';
 import link from '../schema/Link.markdoc';
 import { findMatchingKey, sluggify, unslugify } from '../utils/docHelpers';
 
-const LOCAL_DOCS = process.env.LOCAL_DOCS || config.get('localDocs');
+const LOCAL_DOCS = true || process.env.LOCAL_DOCS || config.get('localDocs');
 
 const LOCAL_ARTICLES_DIR = path.join(__dirname, '../content/local-docs');
 const ARTICLES_DIR = path.join(__dirname, '../content/articles');
@@ -86,23 +86,23 @@ const getNavigation: RequestHandler = async (req, res) => {
     res.json(contentNavigation);
 };
 
-const getDoc: RequestHandler = async (req, res) => {
+export const getDoc: any = async () => {
     log.debug('Getting doc', {
         LOCAL_DOCS,
-        path: req.query.path,
+        path: '/example',
     });
-    const host = req.get('host');
-    const username = _.get(res, 'locals.user.name', '').replace(' ', '');
-    const roles = _.get(res, 'locals.user.roles', []);
-    const slugger = new GithubSlugger();
+    // const host = req.get('host');
+    // const username = _.get(res, 'locals.user.name', '').replace(' ', '');
+    // const roles = _.get(res, 'locals.user.roles', []);
+    // const slugger = new GithubSlugger();
 
     let document;
     if (LOCAL_DOCS) {
         const contentManifest = createContentManifest(ARTICLES_DIR, glossaryTerms);
-        const matchingKey = findMatchingKey(contentManifest, req.query.path as string);
+        const matchingKey = findMatchingKey(contentManifest, '/example');
         document = contentManifest[matchingKey];
-    } else {
-        const route = req.query.path as string;
+    } else {/*
+        const route = '/example';
         const unsluggifiedRoute = unslugify(route);
         const esQuery = {
             bool: {
@@ -132,29 +132,30 @@ const getDoc: RequestHandler = async (req, res) => {
             const matchingKey = findMatchingKey(contentManifest, req.query.path as string);
             document = contentManifest[matchingKey];
         }
+        */
     }
 
     if (!document) {
-        document = createPlaceholderDoc(req.query.path as string);
+        document = createPlaceholderDoc('/example');
     }
 
-    if (document?.frontmatter?.access_role) {
-        let hasRole = false;
-        roles.forEach((role) => {
-            if (document.frontmatter.access_role.includes(role)) {
-                hasRole = true;
-            }
-        });
+    // if (document?.frontmatter?.access_role) {
+    //     let hasRole = false;
+    //     roles.forEach((role) => {
+    //         if (document.frontmatter.access_role.includes(role)) {
+    //             hasRole = true;
+    //         }
+    //     });
 
-        if (!hasRole) {
-            return res.sendStatus(404);
-        }
-    }
+    //     if (!hasRole) {
+    //         return res.sendStatus(404);
+    //     }
+    // }
 
     const { ast } = document;
 
     const conf = {
-        slugger,
+
         tags,
         nodes: {
             fence,
@@ -162,9 +163,7 @@ const getDoc: RequestHandler = async (req, res) => {
             link,
         },
         variables: {
-            roles,
-            username,
-            host,
+
         },
         functions: {
             requiredRoles,
@@ -172,13 +171,19 @@ const getDoc: RequestHandler = async (req, res) => {
     };
 
     const content = await Markdoc.transform(ast, conf);
-
-    return res.json({
+    const ret = {
         markdoc: {
             content,
         },
         frontmatter: document.frontmatter,
-    });
+    };
+    return ret;
+    // return res.json({
+    //     markdoc: {
+    //         content,
+    //     },
+    //     frontmatter: document.frontmatter,
+    // });
 };
 
 const getGlossary: RequestHandler = async (req, res) => {

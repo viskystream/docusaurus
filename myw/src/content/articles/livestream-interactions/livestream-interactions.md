@@ -1,0 +1,23 @@
+---
+route: /livestream-interactions
+linkTitle: Livestream Interactions
+pageTitle: Overview
+kind: concept
+uuid: d4ebf2f1-4e76-4c10-bc50-cdfb2798c697
+---
+
+As live streaming continues to grow in adoption, viewers have to come to expect interactivity and new ways to engage with content and other viewers. Livestream interactions convert passive viewers into active participants where they can connect, influence, and contribute to the streaming experience in a meaningful way. 
+
+## GET STARTED {% .text-primary-500 %}
+
+{% link-grid  %}
+  {% link-grid-link title="Types of interactions" href="/livestream-interactions/types-of-interactions" description="Learn about the different types of livestream interations and their uses" /%}
+  {% link-grid-link title="Create a group call" href="/livestream-interactions/create-a-group-call" description="Generate a call where multiple users can both send and receive video and audio data on a single call" /%}
+{% /link-grid  %}
+
+## DIRECT STREAM {% .text-primary-500 %}
+
+{% link-grid  %}
+  {% link-grid-link title="Direct streaming broadcaster" href="/livestream-interactions/direct-streaming-broadcaster" description="Learn how to send a Direct Stream, which allows a viewer/viewers to join a private broadcast" /%}
+  {% link-grid-link title="Direct streaming viewer" href="/livestream-interactions/direct-streaming-viewer" description="Learn how to recieve a Direct Stream, which allows a viewer/viewers to join a private broadcast" /%}
+{% /link-grid  %}
