@@ -16,6 +16,9 @@
     "noEmit": false
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "package.json",
+    "log.ts",
+    "version.ts",
   ]
 }

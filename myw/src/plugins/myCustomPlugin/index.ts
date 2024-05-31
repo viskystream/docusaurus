@@ -1,21 +1,23 @@
 import type { Plugin } from '@docusaurus/types';
 
-import { getDoc } from '../../handlers/markdoc';
+import { getDoc, transformData } from '../../handlers/markdoc';
 
 
 export default function myCustomPlugin(context, options) {
   return {
     name: 'my-custom-plugin',
-    loadContent() {
-      const ret = getDoc();
+    async loadContent() {
+      const ret = await getDoc();
+      console.log('loadContent');
       console.log(ret);
+
       return ret;
     },
     async contentLoaded({ content, actions }) {
       const { addRoute, createData } = actions;
       const contentPath = await createData(
         'myData.json',
-        JSON.stringify(content)
+        JSON.stringify(content.ast)
       );
       addRoute({
         path: '/example',

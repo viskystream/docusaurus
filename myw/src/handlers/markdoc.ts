@@ -153,7 +153,10 @@ export const getDoc: any = async () => {
     // }
 
     const { ast } = document;
-
+    return {
+        ast,
+        document
+    };
     const conf = {
 
         tags,
@@ -186,6 +189,32 @@ export const getDoc: any = async () => {
     // });
 };
 
+export const transformData = async (ast, document) => {
+    const conf = {
+
+        tags,
+        nodes: {
+            fence,
+            heading,
+            link,
+        },
+        variables: {
+
+        },
+        functions: {
+            requiredRoles,
+        },
+    };
+
+    const content = await Markdoc.transform(ast, conf);
+    const ret = {
+        markdoc: {
+            content,
+        },
+        frontmatter: document.frontmatter,
+    };
+    return ret;
+};
 const getGlossary: RequestHandler = async (req, res) => {
     const host = req.get('host');
     const username = _.get(res, 'locals.user.name', '').replace(' ', '');
