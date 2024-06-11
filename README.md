@@ -17,5 +17,5 @@ This should open up localhost:3000/
 To build 
 
 ```
-tsc
+npm run ts-build
 ```
