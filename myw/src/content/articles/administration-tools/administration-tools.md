@@ -1,5 +1,5 @@
 ---
-route: /administration-tools
+route: /example
 linkTitle: Administration Tools
 pageTitle: Overview
 kind: concept

@@ -1,0 +1,1 @@
+declare type StringKeys = Record<string, any>;

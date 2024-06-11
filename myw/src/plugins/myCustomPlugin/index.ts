@@ -9,8 +9,7 @@ export default function myCustomPlugin(context, options) {
     async loadContent() {
       const ret = await getDoc();
       console.log('loadContent');
-      console.log(ret);
-
+      console.log(JSON.stringify(ret));
       return ret;
     },
     async contentLoaded({ content, actions }) {
@@ -22,6 +21,7 @@ export default function myCustomPlugin(context, options) {
       addRoute({
         path: '/example',
         component: '@site/src/components/MyCustomPage',
+       // component: '@site/src/components/DocDocument',
         exact: true,
         //source: contentPath,
         modules: {
