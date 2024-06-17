@@ -1,0 +1,54 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+	.h-screen-hack {
+		height: 100vh;
+	}
+
+	.min-h-screen-hack {
+		min-height: 100vh;
+	}
+
+	.max-h-screen-hack {
+		max-height: 100vh;
+	}
+}
+
+@layer utilities {
+	@supports (-webkit-touch-callout: none) {
+		.h-screen-hack {
+			height: -webkit-fill-available;
+		}
+
+		.min-h-screen-hack {
+			min-height: -webkit-fill-available;
+		}
+
+		.max-h-screen-hack {
+			min-height: -webkit-fill-available;
+		}
+	}
+}
+
+.transition-effects {
+	@apply transition-all duration-700 ease-in-out;
+}
+
+@keyframes linearProgressSlideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.animate-linear-progress-slideRight {
+  animation: linearProgressSlideRight 1000ms linear infinite;
+}
