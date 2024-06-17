@@ -1,0 +1,192 @@
+{
+  "$$mdtype": "Tag",
+  "name": "article",
+  "attributes": {},
+  "children": [
+    {
+      "$$mdtype": "Tag",
+      "name": "h1",
+      "attributes": {},
+      "children": [
+        "Webhook Events"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "Note",
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Tag",
+          "name": "p",
+          "attributes": {},
+          "children": [
+            "Webhooks allow you to receive real-time HTTP notifications of changes to specific resources in our system."
+          ]
+        }
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "p",
+      "attributes": {},
+      "children": [
+        "Webhooks allow you to receive real-time HTTP notifications of changes to specific resources in our system."
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "h2",
+      "attributes": {},
+      "children": [
+        "How It Works"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "p",
+      "attributes": {},
+      "children": [
+        "When one of the specified events occurs, we will send an HTTP POST payload to the webhook's configured URL."
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "h3",
+      "attributes": {},
+      "children": [
+        "Event Types"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "p",
+      "attributes": {},
+      "children": [
+        "Here are some of the event types you can subscribe to:"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "ul",
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Tag",
+          "name": "li",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "code",
+              "attributes": {},
+              "children": [
+                "user.created"
+              ]
+            },
+            ": Triggered when a new user is created."
+          ]
+        },
+        {
+          "$$mdtype": "Tag",
+          "name": "li",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "code",
+              "attributes": {},
+              "children": [
+                "user.updated"
+              ]
+            },
+            ": Triggered when an existing user is updated."
+          ]
+        },
+        {
+          "$$mdtype": "Tag",
+          "name": "li",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "code",
+              "attributes": {},
+              "children": [
+                "user.deleted"
+              ]
+            },
+            ": Triggered when a user is deleted."
+          ]
+        },
+        {
+          "$$mdtype": "Tag",
+          "name": "li",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "code",
+              "attributes": {},
+              "children": [
+                "invoice.paid"
+              ]
+            },
+            ": Triggered when an invoice is marked as paid."
+          ]
+        },
+        {
+          "$$mdtype": "Tag",
+          "name": "li",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "code",
+              "attributes": {},
+              "children": [
+                "invoice.failed"
+              ]
+            },
+            ": Triggered when an invoice payment fails."
+          ]
+        }
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "h3",
+      "attributes": {},
+      "children": [
+        "Example Payload"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "p",
+      "attributes": {},
+      "children": [
+        "Below is an example of the JSON payload sent to your webhook URL when the ",
+        {
+          "$$mdtype": "Tag",
+          "name": "code",
+          "attributes": {},
+          "children": [
+            "user.created"
+          ]
+        },
+        " event is triggered:"
+      ]
+    },
+    {
+      "$$mdtype": "Tag",
+      "name": "pre",
+      "attributes": {
+        "data-language": "json"
+      },
+      "children": [
+        "{\n\"id\": \"evt_1A2B3C4D5E6F7G8H9I0J\",\n\"type\": \"user.created\",\n\"data\": {\n\"id\": \"user_12345\",\n\"name\": \"John Doe\",\n\"email\": \"john.doe@example.com\",\n\"created_at\": \"2023-06-04T12:34:56Z\"\n}\n}\n"
+      ]
+    }
+  ]
+}

@@ -1,23 +1,32 @@
-import React from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React, { useEffect, useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
+import Markdoc from '@markdoc/markdoc';
+import Note from './Note';
+import {
+  TabHeader, TabHeaderItem, TabPanel, TabPanelItem, Tabs
+} from './Tabs';
+
+
+const components = {
+  Note,
+  Tabs,
+  TabHeader,
+  TabHeaderItem,
+  TabPanel,
+  TabPanelItem,
+}
 
 const MarkdocPage = ({ doc }) => {
-  const { siteConfig } = useDocusaurusContext();
-  console.log("doc", doc);
-  const { content } = doc;
+  console.log("MarkdocPage doc", doc);
+
+  const render = useMemo(() => Markdoc.renderers.react(doc, React, { components }), [doc]);
 
   return (
-    <Layout
-      title={doc.title}
-      description={doc.description || 'Description will go into a meta tag in <head />'}
-    >
+    <Layout title="Markdoc Page" description="Rendering Markdoc content">
       <div className="container margin-vert--lg">
         <div className="row">
           <div className="col col--8 col--offset-2">
-            <article>
-              <div dangerouslySetInnerHTML={{ __html: content }} />
-            </article>
+            <article>{render}</article>
           </div>
         </div>
       </div>

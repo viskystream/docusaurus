@@ -6,6 +6,11 @@ description: "An overview of webhook events in our system."
 
 # Webhook Events
 
+{% note  %}
+    Webhooks allow you to receive real-time HTTP notifications of changes to specific resources in our system.
+{% /note  %}
+
+
 Webhooks allow you to receive real-time HTTP notifications of changes to specific resources in our system.
 
 ## How It Works

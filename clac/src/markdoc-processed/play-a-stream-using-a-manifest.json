@@ -1,0 +1,4050 @@
+{
+  "$$mdtype": "Tag",
+  "name": "article",
+  "attributes": {},
+  "children": [
+    {
+      "$$mdtype": "Tag",
+      "name": "Tabs",
+      "attributes": {},
+      "children": [
+        {
+          "$$mdtype": "Tag",
+          "name": "TabHeader",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "TabHeaderItem",
+              "attributes": {},
+              "children": [
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "React"
+                  ]
+                }
+              ]
+            },
+            {
+              "$$mdtype": "Tag",
+              "name": "TabHeaderItem",
+              "attributes": {},
+              "children": [
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Vanilla JS"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$$mdtype": "Tag",
+          "name": "TabPanel",
+          "attributes": {},
+          "children": [
+            {
+              "$$mdtype": "Tag",
+              "name": "TabPanelItem",
+              "attributes": {},
+              "children": [
+                {
+                  "$$mdtype": "Tag",
+                  "name": "Note",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "p",
+                      "attributes": {},
+                      "children": [
+                        "Webhooks allow you to receive real-time HTTP notifications of changes to specific resources in our system."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Manifest Player"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Below are instructions on how to set up a basic Manifest Player which is a player that uses a manifest URL to receive video data."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "What is a Player?"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Player is ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "'s"
+                      ]
+                    },
+                    " video consumer API. It allows a user to receive video and audio data via a web call. The Player API is intended for unidirectional video streaming applications such as one-way education, presentation, performance, and more."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Before Getting Started"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "'s Player API can either be used as a standalone JavaScript API or as a React Component Library. The instructions below outline how to create a simple Manifest Player application using React."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Project dependencies include knowledge of and experience with:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ul",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "https://reactjs.org/docs/react-api.html"
+                          },
+                          "children": [
+                            "React"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "https://reactjs.org/docs/hooks-intro.html"
+                          },
+                          "children": [
+                            "React Hooks"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "https://reactjs.org/docs/context.html"
+                          },
+                          "children": [
+                            "React Context"
+                          ]
+                        },
+                        ", including ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "https://reactjs.org/docs/context.html#contextprovider"
+                          },
+                          "children": [
+                            "Providers"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "If you are new to any of the above, we recommend spending some time familiarizing yourself with these before moving on."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "IMPORTANT"
+                      ]
+                    },
+                    ": You will need a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "domain"
+                      ]
+                    },
+                    " which will be provided by ."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Excluding Hls.js or Mpegts.js libraries from the bundle"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "By default, the player uses ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "hls.js"
+                      ]
+                    },
+                    " and ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "mpegts.js"
+                      ]
+                    },
+                    " npm packages, which means they will be included in the bundle and the player will be ready to play stream without additional requests. It's possible to exclude it from the bundle and load it on demand, which decreases the bundle size but adds a small delay before ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "hlsjs"
+                      ]
+                    },
+                    " or ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "flvhttp"
+                      ]
+                    },
+                    " start playing. To do that you need some js minifier with the ability to replace ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "proccess.env"
+                      ]
+                    },
+                    " with literals and remove dead code from the bundle and pass ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "HLSJS_BUNDLED=false"
+                      ]
+                    },
+                    " or/and ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "MPEGTS_BUNDLED=false"
+                      ]
+                    },
+                    " env to a minifier / bundler.",
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "/docs/basic-operator-integration/video-client#how-do-i-do-an-isimplements-check"
+                      },
+                      "children": [
+                        "How to reduce the size of the bundle?"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Part I: Setting up a Basic Manifest Player"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Below are step-by-step instructions on how to set up a basic ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerUiState"
+                      ]
+                    },
+                    " instance using a manifest. If you want to just skip to the end and see it all put together, head ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "#full-code"
+                      },
+                      "children": [
+                        "here"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 1: Imports"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "To start, import the following:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "React"
+                          ]
+                        },
+                        ", ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useEffect"
+                          ]
+                        },
+                        ", ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useState"
+                          ]
+                        },
+                        " from ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "react"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUI"
+                          ]
+                        },
+                        ", ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext"
+                          ]
+                        },
+                        ", and ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "VideoClient"
+                          ]
+                        },
+                        " from ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "@video/video-client-web"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUI,\n  PlayerUiContext,\n  VideoClient,\n} from \"@video/video-client-web\";\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 2: Set ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "yourDomain"
+                      ]
+                    },
+                    " variable(s)."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "This will be provided by for your organization."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nconst yourDomain = \"https://yourdomain.com\";\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 3: Configure ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " Options."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Begin configuring your ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " options.",
+                    " ",
+                    "A new ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " instance takes as a parameter an ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "optional"
+                      ]
+                    },
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClientOptions"
+                      ]
+                    },
+                    " object comprised of",
+                    " ",
+                    "five optional properties:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "backendEndpoints"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - An array of loadbalancer urls. These are optional when using a manifest player. For more info, see ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "#backendEndpoints"
+                          },
+                          "children": [
+                            "Appendix"
+                          ]
+                        },
+                        "."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "token"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A token. For more info, see ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "#videoclientoptionstoken"
+                          },
+                          "children": [
+                            "Appendix"
+                          ]
+                        },
+                        "."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A boolean that determines if players should autoplay (",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay: true"
+                          ]
+                        },
+                        ") or not (",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay: false"
+                          ]
+                        },
+                        ")."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "stats"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "VideoClientStats"
+                          ]
+                        },
+                        " options object. For more info, see ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "#videoclientoptionsstats"
+                          },
+                          "children": [
+                            "Appendix"
+                          ]
+                        },
+                        "."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "logger"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "LoggerCore"
+                          ]
+                        },
+                        " instance. For more info, see ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "a",
+                          "attributes": {
+                            "href": "#videoclientoptionslogger"
+                          },
+                          "children": [
+                            "Appendix"
+                          ]
+                        },
+                        "."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "loggerClientName"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - Passing this option appends the preferred app name to Video Client logs, i.e. \"videoclient:loggerClientName\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "interface VideoClientOptions {\n  backendEndpoints?: string[];\n  token?: TokenGetter;\n  autoPlay?: boolean;\n  stats?: VideoClientStats;\n  logger?: LoggerCore;\n  loggerClientName?: string;\n}\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 4: Create a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " instance."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "The VideoClient class is the foundation of the Video web encoder and player. It provides access",
+                    " ",
+                    "to a Call as well as manages peer and player state."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Set up your main React component."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nconst MyManifestPlayerApp = ({ props }) => {\n  return <h1>Placeholder for Manifest Player App</h1>;\n};\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Use the React ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useState"
+                          ]
+                        },
+                        " hook to manage the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "VideoClient"
+                          ]
+                        },
+                        " state."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\n/*\n * 4.2a Set local state.\n */\nconst [vc, setVc] = useState<types.VideoClient | null>(null);\n/*\n * 4.2b For dev purposes only, let's console our state to make sure we\n * have the right data.\n */\nconsole.log(\"VideoClient State\", vc);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Use the React ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useEffect"
+                          ]
+                        },
+                        " hook to create a new ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "VideoClient"
+                          ]
+                        },
+                        " instance."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Using your configured options from Step 3 we will create a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " instance."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nuseEffect(() => {\n  /*\n   * 4.3a Setup a VideoClient instance. Be sure to include a state check to avoid\n   * an infinite loop.\n   */\n  if (vc == null) {\n    const opts: types.VideoClientOptions = {\n      backendEndpoints: [yourDomain],\n      loggerConfig: {\n        clientName: \"your-app-name\",\n        writeLevel: \"debug\", // Defaults to debug, but can be info, warn, notice, deprecated, network, local, timing, or trace. Recommend leaving this as debug.\n      },\n    };\n    /*\n     * 4.3b Set local state.\n     */\n    const newVc = new VideoClient(opts);\n    setVc(newVc);\n  }\n  /*\n   * 4.3c On unmount, be sure to dispose of the VideoClient and set state to `null`.\n   */\n  return () => {\n    if (vc != null) {\n      vc.dispose();\n      setVc(null);\n    }\n  };\n}, [vc]);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Putting it all together, your code should look like this at this point:"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "tsx"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUiState,\n  PlayerUiContext,\n  types,\n  VideoClient,\n} from \"@video/video-client-web\";\n\nconst MyManifestPlayerApp = ({ props }) => {\n  const yourDomain = \"https://yourdomain.com\";\n  /*\n   * 4.2a Set local state.\n   */\n  const [vc, setVc] = useState<types.VideoClientAPI | null>(null);\n  /*\n   * 4.2b For dev purposes only, let's console our state to make sure we\n   * have the right data.\n   */\n  console.log(\"VideoClient State\", vc);\n\n  useEffect(() => {\n    /*\n     * 4.3a Setup a VideoClient instance. Be sure to include a state check to avoid\n     * an infinite loop.\n     */\n    if (vc == null) {\n      const opts: types.VideoClientOptions = {\n        backendEndpoints: [yourDomain],\n      };\n      /*\n       * 4.3b Set local state.\n       */\n      const newVc = new VideoClient(opts);\n      setVc(newVc);\n    }\n    /*\n     * 4.3c On unmount, be sure to dispose the VideoClient and set state to `null`.\n     */\n    return () => {\n      if (vc != null) {\n        vc.dispose();\n        setVc(null);\n      }\n    };\n    /*\n     * 4.3d Include vc in the dependency array.\n     */\n  }, [vc]);\n\n  /*\n   * 4.1 Return placeholder UI.\n   */\n  return <h1>Placeholder for Manifest Player App</h1>;\n};\n\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "If you are on the right track, this is what you should be seeing in your console output and in the UI after you set your ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "vc"
+                          ]
+                        },
+                        " state."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected console output at the end of Step 4."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected UI at the end of Step 4."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 5: Get a Manifest."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "A customer will receive a manifest in the callback to their integration with the video backend system. For more info, see ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "/docs/basic-operator-integration/video-client#what-are-manifests"
+                      },
+                      "children": [
+                        "What are manifests?"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Get your ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "manifestUrl"
+                          ]
+                        },
+                        "."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "In this example we will be passing in a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifestUrl"
+                      ]
+                    },
+                    " as a prop to our ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "MyManifestPlayerApp"
+                      ]
+                    },
+                    ". Your application may",
+                    " ",
+                    "have different functionality."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "tsx"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\n/*\n * 5.1 Set manifestUrl as a prop in our MyManifestPlayerApp component\n */\nconst MyManifestPlayerApp = ({ manifestUrl, props }) => {\n  // Rest of code here\n};\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 6: Configure ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerOptions"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "The ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient.requestPlayer()"
+                      ]
+                    },
+                    " method takes one required and one optional parameter: a required ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifest"
+                      ]
+                    },
+                    " (string) and an optional ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerOptions"
+                      ]
+                    },
+                    " object:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "interface PlayerOptions {\n  autoPlay?: boolean;\n  players: string[] | PlayerSpec[];\n}\n\ninterface PlayerSpec {\n  id: string;\n  options: any;\n}\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerOptions.players"
+                      ]
+                    },
+                    " object accepts either a string list or an array of ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerSpec"
+                      ]
+                    },
+                    " objects. If you want to limit available player drivers with default options, then pass a string list with desired players:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, {\n  players: [\"webrtc\", \"hlsjs\", \"native-hls\"],\n});\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "When using ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerSpec"
+                      ]
+                    },
+                    " array, each player driver accepts its specific options:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, {\n  players: [\n    { id: \"webrtc\" },\n    { id: \"hlsjs\", options: { hlsjsPath: \"http://example.com/hls.js\" } },\n    \"native-hls\",\n  ],\n});\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "List of player drivers and options:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "webrtc"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ul",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", overrides global ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " option"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "hlsjs"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ul",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", overrides global ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " option"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "estimatedKbps"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", estimated bitrate for ABR controller"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "maxBufferSize"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", 'minimum' maximum buffer size in bytes. If buffer size upfront is bigger than this value, no fragment will be loaded."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "maxBufferLength"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", maximum buffer length in seconds. Hls.js will never exceed this value, even if maxBufferSize is not reached yet."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "hlsjsPath"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "string"
+                          ]
+                        },
+                        ", URL to specific version of Hls.js"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "debug"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", enables debug logs in console"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "native-hls"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ul",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", overrides global ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " option"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "mp4-ws"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ul",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", overrides global ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " option"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "maxShifts"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "requiredBuffer"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "requiredBufferBeforeRemove"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "backFill"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "maxGap"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "retry"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "mode"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "\"A\", \"B\", \"N\""
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "download"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "segmentDuration"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "initFailTimeout"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "playbackFailTimeout"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "skipWatchInterval"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "skipForwardThreshold"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "bitrate"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "estimatedKbps"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "number"
+                          ]
+                        },
+                        ", estimated bitrate for ABR controller"
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "origin"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "boolean"
+                          ]
+                        },
+                        ", TBD"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 7: Request a manifest player."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Use the React ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useState"
+                          ]
+                        },
+                        " hook to manage ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "playerUi"
+                          ]
+                        },
+                        " state."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\n/*\n * 7.2b Set local state.\n */\nconst [playerUi, setPlayerUi] = useState<PlayerUiState | null>(null);\n/*\n * 7.2c For dev purposes only, let's console our state to make sure we\n * have the right data.\n */\nconsole.log(\"Manifest Player Ui\", playerUi);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Request manifest player."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Using the React ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "useEffect"
+                      ]
+                    },
+                    " hook, we will request a manifest player and set our local state."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "tsx"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nuseEffect(() => {\n  /*\n   * 7.2a Check if playerUi is null to avoid a loop.\n   */\n  if (vc != null && playerUi == null && manifestUrl) {\n    /*\n     * 7.2c Your configured PlayerOptions from Step 6.\n     */\n    const options: Partial<types.PlayerOptions> = {};\n    /*\n     * 7.2d Await manifest player.\n     */\n    const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n    /*\n     * 7.2e Set local state with a new PlayerUiState instance.\n     */\n    setPlayerUi(new PlayerUiState(player));\n  }\n  /*\n   * 7.2f Include vc, playerUi, and manifestUrl in the dependency array.\n   */\n}, [vc, playerUi, manifestUrl]);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "strong",
+                          "attributes": {},
+                          "children": [
+                            "Important: Clean up!"
+                          ]
+                        },
+                        " Be sure to dispose of the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiState"
+                          ]
+                        },
+                        " (in this case, on unmount). Your implementation may have different functionality,",
+                        " ",
+                        "so you may not want to dispose on unmount, but be sure to dispose of the Player instance when appropriate."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "tsx"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nuseEffect(() => {\n  if (vc != null && playerUi == null && manifestUrl) {\n    const options: Partial<types.PlayerOptions> = {};\n    const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n    setPlayerUi(new PlayerUiState(player));\n  }\n  /*\n   * 7.3a In the same useEffect as above, utilize the useEffect cleanup.\n   */\n  return () => {\n    /*\n     * 7.3b Check is current state is not null.\n     */\n    if (playerUi != null) {\n      /*\n       * 7.3c Dispose encoderUi and set state to null.\n       */\n      playerUi.dispose();\n      setPlayerUi(null);\n    }\n  };\n}, [vc, playerUi, manifestUrl]);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Putting it all together, your code should look like this at this point:"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "tsx"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUiState,\n  PlayerUiContext,\n  types,\n  VideoClient,\n} from \"@video/video-client-web\";\n\nconst MyManifestPlayerApp = ({ manifestUrl, props }) => {\n  const [vc, setVc] = useState<types.VideoClientAPI | null>(null);\n  const [playerUi, setPlayerUi] = useState<PlayerUiState | null>(null);\n\n  const yourDomain = \"https://yourdomain.com\";\n\n  /*\n   * For dev purposes only, let's console our state to make sure we\n   * have the right data.\n   */\n  console.log(\"VideoClient State\", vc);\n  console.log(\"Manifest Player Ui\", playerUi);\n\n  useEffect(() => {\n    if (vc == null) {\n      const opts: types.VideoClientOptions = {\n        backendEndpoints: [yourDomain],\n      };\n      const newVc = new VideoClient(opts);\n      setVc(newVc);\n    }\n    return () => {\n      if (vc != null) {\n        vc.dispose();\n        setVc(null);\n      }\n    };\n  }, [vc]);\n\n  useEffect(() => {\n    if (vc != null && playerUi == null && manifestUrl) {\n      const options: Partial<types.PlayerOptions> = {};\n      const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n      setPlayerUi(new PlayerUiState(player));\n    }\n    return () => {\n      if (playerUi != null) {\n        playerUi.dispose();\n        setPlayerUi(null);\n      }\n    };\n  }, [vc, playerUi, manifestUrl]);\n\n  /*\n   * Let's add some Ui to remind us to include a manifestUrl\n   */\n  if (!manifestUrl) {\n    return <h3>Please input a valid manifest url.</h3>;\n  }\n\n  return <h1>Placeholder for Manifest Player App</h1>;\n};\n\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "If you are on the right track, this is what you should be seeing in your console output and in the UI."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "Important"
+                      ]
+                    },
+                    ": Remember to pass in a valid ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifestUrl"
+                      ]
+                    },
+                    " prop!"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected console output at the end of Step 7."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected UI at the end of Step 7."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 8: Create a Player Provider"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Now that you have a working ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " and ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "playerUi"
+                      ]
+                    },
+                    " state, it's time to start building the UI of your application.",
+                    " ",
+                    "'s UI components access ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "global state"
+                      ]
+                    },
+                    " via React ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "Context"
+                      ]
+                    },
+                    ". For more background information, check out the",
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "https://reactjs.org/docs/context.html"
+                      },
+                      "children": [
+                        "React Context docs"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Create a new file for our UI Component, and set aside."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport React from \"react\";\n\nconst Player = () => {\n  return <>Placeholder for Player Component!</>;\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Back in ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "MyManifestPlayerApp.tsx"
+                          ]
+                        },
+                        ", import ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext"
+                          ]
+                        },
+                        " and our new component."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport { PlayerUiContext } from \"@video/video-client-web\";\nimport Player from \"./Player\";\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Create a React Context ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "Provider"
+                          ]
+                        },
+                        " for your Call store using the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext"
+                          ]
+                        },
+                        " Context instance. Grab the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "playerUi"
+                          ]
+                        },
+                        " value",
+                        " ",
+                        "from the local React state."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nreturn <PlayerUiContext.Provider value={playerUi}></PlayerUiContext.Provider>;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Implement Player Provider."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "Important: The Provider needs to ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "wrap"
+                          ]
+                        },
+                        " our ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "Player"
+                          ]
+                        },
+                        " component."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\n/*\n * 9.4a If our state is null, let's just return a fragment.\n * Loading our Player component with an invalid store will throw errors.\n */\nif (playerUi == null) {\n  return <></>;\n}\n/*\n * 9.4b If our playerUi state is available, let's return our\n * Provider and Player component.\n */\nreturn (\n  <PlayerUiContext.Provider value={playerUi}>\n    <Player />\n  </PlayerUiContext.Provider>\n);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Putting it all together."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "This is how our application should be looking at this point:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport React from \"react\";\n\nconst Player = () => {\n  return <>Placeholder for Player Component!</>;\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUiState,\n  PlayerUiContext,\n  types,\n  VideoClient,\n} from \"@video/video-client-web\";\nimport Player from \"./Player\";\n\nconst MyManifestPlayerApp = ({ manifestUrl, props }) => {\n  const [vc, setVc] = useState<types.VideoClientAPI | null>(null);\n  const [playerUi, setPlayerUi] = useState<PlayerUiState | null>(null);\n  const yourDomain = \"https://yourdomain.com\";\n  /*\n   * For dev purposes only, let's console our our state to make sure we\n   * have the right data.\n   */\n  console.log(\"VideoClient State\", vc);\n  console.log(\"Manifest Player Ui\", playerUi);\n\n  useEffect(() => {\n    if (vc == null) {\n      const opts: types.VideoClientOptions = {\n        backendEndpoints: [yourDomain],\n      };\n      const newVc = new VideoClient(opts);\n      setVc(newVc);\n    }\n    return () => {\n      if (vc != null) {\n        vc.dispose();\n        setVc(null);\n      }\n    };\n  }, [vc]);\n\n  useEffect(() => {\n    if (vc != null && playerUi == null && manifestUrl) {\n      const options: Partial<types.PlayerOptions> = {};\n      const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n      setPlayerUi(new PlayerUiState(player));\n    }\n    return () => {\n      if (playerUi != null) {\n        playerUi.dispose();\n        setPlayerUi(null);\n      }\n    };\n  }, [vc, playerUi, manifestUrl]);\n\n  /*\n   * Let's add some Ui to remind us to include a manifestUrl\n   */\n  if (!manifestUrl) {\n    return <h3>Please input a valid manifest url.</h3>;\n  }\n\n  if (playerUi == null) {\n    return <></>;\n  }\n\n  return (\n    <PlayerUiContext.Provider value={playerUi}>\n      <Player />\n    </PlayerUiContext.Provider>\n  );\n};\n\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "If you are on the right track, this is what you should be seeing in the UI."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "Important"
+                      ]
+                    },
+                    ": Remember to pass in a valid ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifestUrl"
+                      ]
+                    },
+                    " prop!"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected UI at the end of Step 8. Your console output should stay the same as in the previous step. Nice work!"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Part II: Build Some UI and Consume the Context"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 9: Build the Player UI using React Components"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Import Player Components."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport {\n  ControlBar,\n  MediaContainer,\n  PlayerAudioButton,\n  PlayerBitrateButton,\n  PlayerFullscreenButton,\n  PlayerGetSoundButton,\n  PlayerNewWindowButton,\n  PlayerOverlayButton,\n  PlayerPlayButton,\n  PlayerVideo,\n  PlayerVolumeRange,\n} from \"@video/video-client-web\";\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Assemble a Player."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "These modular components are independent of one another and can be arranged however you like. The ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "MediaContainer"
+                      ]
+                    },
+                    " and ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "ControlBar"
+                      ]
+                    },
+                    " are merely wrappers for styling purposes."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.tsx\n\nreturn (\n   {* 9.2a MediaContainer should wrap all components for styling. *}\n    <MediaContainer>\n        <PlayerGetSoundButton />\n        <PlayerVideo />\n        {* 9.2b ControlBar wraps controls (for styling). Pass in \"player\"\n        to the variant prop in ControlBar. *}\n        <ControlBar variant=\"player\">\n          <PlayerPlayButton />\n          <PlayerAudioButton />\n          <PlayerVolumeRange />\n          <PlayerBitrateButton />\n          <PlayerFullscreenButton />\n          <PlayerNewWindowButton />\n        </ControlBar>\n        <PlayerOverlayButton />\n    </MediaContainer>\n);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Putting it all together, our ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "Player.tsx"
+                          ]
+                        },
+                        " should now look like this:"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.jsx\n\nimport React from \"react\";\nimport {\n  ControlBar,\n  MediaContainer,\n  PlayerAudioButton,\n  PlayerBitrateButton,\n  PlayerFullscreenButton,\n  PlayerGetSoundButton,\n  PlayerNewWindowButton,\n  PlayerOverlayButton,\n  PlayerPlayButton,\n  PlayerVideo,\n  PlayerVolumeRange,\n} from \"@video/video-client-web\";\n\nconst Player = () => {\n  return (\n    <MediaContainer>\n      <PlayerGetSoundButton />\n      <PlayerVideo />\n      <ControlBar variant=\"player\">\n        <PlayerPlayButton />\n        <PlayerAudioButton />\n        <PlayerVolumeRange />\n        <PlayerBitrateButton />\n        <PlayerFullscreenButton />\n        <PlayerNewWindowButton />\n      </ControlBar>\n      <PlayerOverlayButton />\n    </MediaContainer>\n  );\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "And our UI should now look something like this:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Expected UI at the end of Step 9. Woohoo! You did it!"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 10. Access Context"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Next, you'll access the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "playerCtx"
+                      ]
+                    },
+                    " context from the Context Provider."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "Important to note:"
+                      ]
+                    },
+                    " In order to update the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "playerCtx"
+                      ]
+                    },
+                    " and make these updates available via ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "Context"
+                      ]
+                    },
+                    " (i.e. available",
+                    " ",
+                    "to all components nested within the Provider tree), updates need to occur ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "within"
+                      ]
+                    },
+                    " a nested component NOT in the component",
+                    " ",
+                    "which declares the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "Provider"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Import ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useContext"
+                          ]
+                        },
+                        " from React and ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext"
+                          ]
+                        },
+                        " from ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "@video/video-client-web"
+                          ]
+                        },
+                        "."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in `Player.tsx`\nimport React, { useContext } from \"react\";\nimport { PlayerUiContext } from \"@video/video-client-web\";\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Access ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "Context"
+                          ]
+                        },
+                        " via React's ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "useContext"
+                          ]
+                        },
+                        " hook."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in `Player.tsx`\nconst playerCtx = useContext(PlayerUiContext);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        "Putting it all together."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Not much has changed in this step (our UI and console output should remain the same as in Step 9), but our ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "Player"
+                      ]
+                    },
+                    " component should now look like this:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport React, { useContext } from \"react\";\nimport {\n  ControlBar,\n  PlayerUiContext,\n  MediaContainer,\n  PlayerAudioButton,\n  PlayerBitrateButton,\n  PlayerFullscreenButton,\n  PlayerGetSoundButton,\n  PlayerNewWindowButton,\n  PlayerOverlayButton,\n  PlayerPlayButton,\n  PlayerVideo,\n  PlayerVolumeRange,\n} from \"@video/video-client-web\";\n\nconst Player = () => {\n  const playerCtx = useContext(PlayerUiContext);\n\n  return (\n    <MediaContainer>\n      <PlayerGetSoundButton />\n      <PlayerVideo autoPlayerSetup />\n      <ControlBar variant=\"player\">\n        <PlayerPlayButton />\n        <PlayerAudioButton />\n        <PlayerVolumeRange />\n        <PlayerBitrateButton />\n        <PlayerFullscreenButton />\n        <PlayerNewWindowButton />\n      </ControlBar>\n      <PlayerOverlayButton />\n    </MediaContainer>\n  );\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 11. Working with Context."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Now that you have a Player up and running, you may have some functionality in your application that requires interacting with the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "Player"
+                      ]
+                    },
+                    " API. In almost all cases, you will want to call any methods and make any changes to your state ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "within"
+                      ]
+                    },
+                    " the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerUiContext.Provider"
+                      ]
+                    },
+                    ", that way your Context is updated. If you make any updates to your Context ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "outside"
+                      ]
+                    },
+                    " of the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "PlayerUiContext.Provider"
+                      ]
+                    },
+                    ", those changes will not be reflected in your application."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "strong",
+                          "attributes": {},
+                          "children": [
+                            "Do This:"
+                          ]
+                        },
+                        " Call methods and update Context WITHIN the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext.Provider"
+                          ]
+                        },
+                        "."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport React, { useContext, useEffect } from \"react\";\nimport {\n  ControlBar,\n  PlayerUiContext,\n  MediaContainer,\n  PlayerAudioButton,\n  PlayerBitrateButton,\n  PlayerFullscreenButton,\n  PlayerGetSoundButton,\n  PlayerNewWindowButton,\n  PlayerOverlayButton,\n  PlayerPlayButton,\n  PlayerVideo,\n  PlayerVolumeRange,\n} from \"@video/video-client-web\";\n\nconst Player = () => {\n  /*\n   * 11.1a Access the playerCtx via the useContext hook.\n   */\n  const playerCtx = useContext(PlayerUiContext);\n\n  /*\n   * 11.1b Make updates to your Player store, call Player methods, etc.\n   * here or within nested components that access Context from the same\n   * Provider.\n   */\n  useEffect(() => {\n    playerCtx.player.localVideoPaused = true;\n    // Will pause the player.\n  }, []);\n\n  return (\n    <MediaContainer>\n      <PlayerGetSoundButton />\n      <PlayerVideo />\n      <ControlBar variant=\"player\">\n        <PlayerPlayButton />\n        <PlayerAudioButton />\n        <PlayerVolumeRange />\n        <PlayerBitrateButton />\n        <PlayerFullscreenButton />\n        <PlayerNewWindowButton />\n      </ControlBar>\n      <PlayerOverlayButton />\n    </MediaContainer>\n  );\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "strong",
+                          "attributes": {},
+                          "children": [
+                            "Not This:"
+                          ]
+                        },
+                        " Don't call methods or update Context from OUTSIDE the ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "PlayerUiContext.Provider"
+                          ]
+                        },
+                        "."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUiState,\n  PlayerUiContext,\n  types,\n  VideoClient,\n} from \"@video/video-client-web\";\nimport Player from \"./Player\";\n\nconst MyManifestPlayerApp = ({ manifestUrl, props }) => {\n  const [vc, setVc] = useState<types.VideoClientAPI | null>(null);\n  const [playerUi, setPlayerUi] = useState<PlayerUiState | null>(null);\n  const yourDomain = \"https://yourdomain.com\";\n\n  /*\n   * 11.2a With few exceptions (dispose being one of them), DO NOT make updates to\n   * your Player store, call Player methods, etc. here. Any changes you make will not\n   * be reflected in your Context, and therefore, your application.\n   */\n  const playerCtx = useContext(PlayerUiContext);\n\n  useEffect(() => {\n    playerCtx.player.localVideoPaused = true;\n    // Will NOT pause the player.\n  }, []);\n\n  useEffect(() => {\n    if (vc == null) {\n      const opts: types.VideoClientOptions = {\n        backendEndpoints: [yourDomain],\n      };\n      const newVc = new VideoClient(opts);\n      setVc(newVc);\n    }\n    return () => {\n      if (vc != null) {\n        vc.dispose();\n        setVc(null);\n      }\n    };\n  }, [vc]);\n\n  useEffect(() => {\n    if (vc != null && playerUi == null && manifestUrl) {\n      const options: Partial<types.PlayerOptions> = {};\n      const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n      setPlayerUi(new PlayerUiState(player));\n    }\n    return () => {\n      if (playerUi != null) {\n        playerUi.dispose();\n        setPlayerUi(null);\n      }\n    };\n  }, [vc, playerUi, manifestUrl]);\n\n  if (!manifestUrl) {\n    return <h3>Please input a valid manifest url.</h3>;\n  }\n\n  if (playerUi == null) {\n    return <></>;\n  }\n\n  return (\n    <PlayerUiContext.Provider value={playerUi}>\n      <Player />\n    </PlayerUiContext.Provider>\n  );\n};\n\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h1",
+                  "attributes": {},
+                  "children": [
+                    "Full Code"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in Player.tsx\nimport React, { useContext, useEffect } from \"react\";\nimport {\n  ControlBar,\n  PlayerUiContext,\n  MediaContainer,\n  PlayerAudioButton,\n  PlayerBitrateButton,\n  PlayerFullscreenButton,\n  PlayerGetSoundButton,\n  PlayerNewWindowButton,\n  PlayerOverlayButton,\n  PlayerPlayButton,\n  PlayerVideo,\n  PlayerVolumeRange,\n} from \"@video/video-client-web\";\n\nconst Player = () => {\n  const playerCtx = useContext(PlayerUiContext);\n\n  return (\n    <MediaContainer>\n      <PlayerGetSoundButton />\n      <PlayerVideo />\n      <ControlBar variant=\"player\">\n        <PlayerPlayButton />\n        <PlayerAudioButton />\n        <PlayerVolumeRange />\n        <PlayerBitrateButton />\n        <PlayerFullscreenButton />\n        <PlayerNewWindowButton />\n      </ControlBar>\n      <PlayerOverlayButton />\n    </MediaContainer>\n  );\n};\n\nexport default Player;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "// in MyManifestPlayerApp.tsx\nimport React, { useEffect, useState } from \"react\";\nimport {\n  PlayerUiState,\n  PlayerUiContext,\n  types,\n  VideoClient,\n} from \"@video/video-client-web\";\nimport Player from \"./Player\";\n\nconst MyManifestPlayerApp = ({ manifestUrl, props }) => {\n  const [vc, setVc] = useState<types.VideoClient | null>(null);\n  const [playerUi, setPlayerUi] = useState<PlayerUiState | null>(null);\n  const yourDomain = \"https://yourdomain.com\";\n\n  useEffect(() => {\n    if (vc == null) {\n      const opts: types.VideoClientOptions = {\n        backendEndpoints: [yourDomain],\n      };\n      const newVc = new VideoClient(opts);\n      setVc(newVc);\n    }\n    return () => {\n      if (vc != null) {\n        vc.dispose();\n        setVc(null);\n      }\n    };\n  }, [vc]);\n\n  useEffect(() => {\n    if (vc != null && playerUi == null && manifestUrl) {\n      const options: Partial<types.PlayerOptions> = {};\n      const player: types.PlayerAPI = vc.requestPlayer(manifestUrl, options);\n      setPlayerUi(new PlayerUiState(player));\n    }\n    return () => {\n      if (playerUi != null) {\n        playerUi.dispose();\n        setPlayerUi(null);\n      }\n    };\n  }, [vc, playerUi, manifestUrl]);\n\n  if (!manifestUrl) {\n    return <h3>Please input a valid manifest url.</h3>;\n  }\n\n  if (playerUi == null) {\n    return <></>;\n  }\n\n  return (\n    <PlayerUiContext.Provider value={playerUi}>\n      <Player />\n    </PlayerUiContext.Provider>\n  );\n};\n\nexport default MyManifestPlayerApp;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "For more info, see ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "/docs/basic-operator-integration/video-client#what-are-manifests"
+                      },
+                      "children": [
+                        "What are manifests?"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h1",
+                  "attributes": {},
+                  "children": [
+                    "Appendix"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "VideoClientOptions.token"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Either a token ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "string"
+                      ]
+                    },
+                    " or a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "TokenRefresher"
+                      ]
+                    },
+                    " can be passed in."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "type TokenRefresher = () => Promise<string>;\ntype TokenGetter = string | TokenRefresher;\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "VideoClientOptions.backendEndpoints"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "This is an array of loadbalancer urls. One url is required and additional fallback urls are optional, and the urls will be tried in order."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "VideoClientOptions.mediaController"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "A ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "MediaStreamController"
+                      ]
+                    },
+                    " instance. A ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "MediaStreamController"
+                      ]
+                    },
+                    " takes one ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "optional"
+                      ]
+                    },
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "options"
+                      ]
+                    },
+                    " parameter."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "interface MediaStreamControllerOptions {\n  defaultConstraints: {\n    audio: DeepReadonly<MediaTrackConstraints>;\n    video: DeepReadonly<MediaTrackConstraints>;\n    screencapture: DeepReadonly<MediaTrackConstraints>;\n  };\n  fallbackConstraints: {\n    audio: DeepReadonly<MediaTrackConstraints>;\n    video: DeepReadonly<MediaTrackConstraints>;\n    screencapture: DeepReadonly<MediaTrackConstraints>;\n  } | null;\n  replaceTracks: boolean;\n  waitingDelay: number;\n  defaultLockPolicy: ExistsStreamPolicy;\n}\n\n/*\n * Example\n */\nconst myMediaStreamController = new MediaStreamController(\n  MediaStreamControllerOptions\n);\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "VideoClientOptions.logger"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "A ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "LoggerCore"
+                      ]
+                    },
+                    " instance."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "import LoggerCore from \"@video/log-client\";\n\nconst myLogger = new LoggerCore(\"myLogger\");\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "VideoClientOptions.stats"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "A ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClientStats"
+                      ]
+                    },
+                    " options object."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "interface VideoClientStats {\n  app: string;\n  userId: string;\n  statsInterval?: number;\n  streamId?: string;\n  studioId?: string;\n  rsrc?: string;\n  xkey?: string;\n  bpeerId?: string;\n  debugLogs?: boolean;\n}\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h4",
+                  "attributes": {},
+                  "children": [
+                    "PlayerBitrateButton Component"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "A parent component for PlayerQualitySettings, used only in the manifest player. This component allows the user to select different bitrates for a player and toggle between low and high latency streams."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "Available Props:"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "type QualitySettingsProps = {\n  classes?: {\n    //NOT REQUIRED: Styling properties for quality select settings.\n    root?: {}; // Styles the root element for the quality select feature.\n    option?: {}; // Styles the element for an inactive bitrate selection option.\n    activeOption?: {}; // Styles the element for an active bitrate selection option.\n    disabledOption?: {}; // Styles the element for an inactive and disabled bitrate selection option.\n  };\n  showBitrate?: boolean; // NOT REQUIRED: When true the bitrate will appear next to each bitrate option\n  disableToggle?: boolean; // NOT REQUIRED: When true the latency toggle is disabled and accepts no click events.\n  disableSelect?: boolean; // NOT REQUIRED: When true the bitrate selection options are disabled and accepts no click events.\n};\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Usage example, disabled latency toggle:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "ts"
+                  },
+                  "children": [
+                    "<PlayerBitrateButton\n  disabledToggle\n  classes={{ root: {}, option: {}, activeOption: {}, disabledOption: {} }}\n/>\n"
+                  ]
+                }
+              ]
+            },
+            {
+              "$$mdtype": "Tag",
+              "name": "TabPanelItem",
+              "attributes": {},
+              "children": [
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Manifest Player"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "The Player is 's video consumer API. There are two different kinds of players, Web Conference players and Manifest players. A ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "Web Conference Player"
+                      ]
+                    },
+                    " is used when connecting to a known ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "callId"
+                      ]
+                    },
+                    " instead of a Manifest player.",
+                    " ",
+                    "It allows a user to receive video and audio data via a web call. In this guide we will be learning how to create a Manifest Player using Vanilla JavaScript."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Before Getting Started"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "'s Player API can either be used as a standalone JavaScript API or as a React Component Library.",
+                    " ",
+                    "The instructions below outline how to create a simple Manifest Player application using Vanilla JavaScript."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "strong",
+                      "attributes": {},
+                      "children": [
+                        "IMPORTANT"
+                      ]
+                    },
+                    ": You will need ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "your domain"
+                      ]
+                    },
+                    " which will be provided by ."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Below are step-by-step instructions on how to set up a Manifest Player using Vanilla JavaScript.",
+                    " ",
+                    "If you want to just skip to the end and see it all put together, head ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "a",
+                      "attributes": {
+                        "href": "#full-code-1"
+                      },
+                      "children": [
+                        "here"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h2",
+                  "attributes": {},
+                  "children": [
+                    "Part I: Creating your bundle"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "In order to use the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "video-client-core"
+                      ]
+                    },
+                    " dependency inside of a Vanilla JavaScript application you must use a static module bundler. For this example we will be using webpack."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 1: Create your webpack.config.js file"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "js"
+                  },
+                  "children": [
+                    "var webpack = require('webpack');\n\nmodule.exports => {\n    return {\n        // Make sure to point this at the index.js file of @video-client-core\n        entry: \"./index.js\",\n        output: {\n            path: __dirname + \"/bundle\",\n            filename: 'videoClientLib.js',\n            libraryTarget: 'var',\n            library: 'VideoClient'\n        },\n    }\n};\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 2: Now create your HTML page for your Player and add the created bundle"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 3: Configure ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " Options."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Begin configuring your ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " options.",
+                    " ",
+                    "A new ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " instance takes as a parameter an ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "em",
+                      "attributes": {},
+                      "children": [
+                        "optional"
+                      ]
+                    },
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClientOptions"
+                      ]
+                    },
+                    " object comprised of",
+                    " ",
+                    "five optional properties:"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "ol",
+                  "attributes": {},
+                  "children": [
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "backendEndpoints"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - An array of loadbalancer urls. These are optional when using a manifest player, for a web conference player this is required, so for this example it will be required."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "streamId"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - The id for the stream that is being viewed."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A boolean that determines if players should autoplay (",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay: true"
+                          ]
+                        },
+                        ") or not (",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "autoPlay: false"
+                          ]
+                        },
+                        ")."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "stats"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "VideoClientStats"
+                          ]
+                        },
+                        " options object."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "logger"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - A ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "LoggerCore"
+                          ]
+                        },
+                        " instance."
+                      ]
+                    },
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "li",
+                      "attributes": {},
+                      "children": [
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "code",
+                          "attributes": {},
+                          "children": [
+                            "loggerClientName"
+                          ]
+                        },
+                        " - ",
+                        {
+                          "$$mdtype": "Tag",
+                          "name": "em",
+                          "attributes": {},
+                          "children": [
+                            "Optional"
+                          ]
+                        },
+                        " - Passing this option appends the preferred app name to Video Client logs, i.e. \"videoclient:loggerClientName\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 4: Create a ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " instance"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "The ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " class is the foundation of the Video web encoder and player. It provides access",
+                    " ",
+                    "to a Call as well as manages peer state. For this function we are going to want to receive a manifest URL which will be required for the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifestPlayer"
+                      ]
+                    },
+                    " when the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    " is created."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      function createVideoClient() {\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n        //Creating our VideoClient instance\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        return false;\n      }\n    </script>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 5: Create our player using the VideoClient"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Next we need to create our ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "manifestPlayer"
+                      ]
+                    },
+                    ", this can be done by requesting a new player from the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "VideoClient"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      function createVideoClient() {\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        let player;\n        try {\n          //Here we are creating our player from the VideoClient\n          player = vc.requestPlayer(manifestUrl);\n        } catch (err) {\n          throw err;\n        }\n\n        return false;\n      }\n    </script>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 6: Add our player to the page"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Now we need to create a method that will add our player to our web page."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      //This is used to store our player outside of each functions scope\n      let playerVideo;\n\n      function addPlayer(player) {\n        //Here we are ensuring the Create Video Element feature exists on the current VideoClient\n        if (\n          VideoClient.adapter.device.isImplements(\n            VideoClient.adapter.Feature.CREATE_VIDEO_ELEMENT\n          )\n        ) {\n          //Now we create our player and append it to or playerWrapper\n          const videoEl = VideoClient.adapter.device.createVideoElement();\n          playerVideo = player;\n          videoEl.width = 400;\n          playerVideo.localAudioMuted = false;\n          player.attachTo(videoEl);\n          document.getElementById(\"playerWrapper\").appendChild(videoEl);\n        }\n      }\n\n      function createVideoClient() {\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        let player;\n        try {\n          player = vc.requestPlayer(manifestUrl);\n        } catch (err) {\n          throw err;\n        }\n\n        addPlayer(player);\n\n        return false;\n      }\n    </script>\n    <div id=\"playerWrapper\"></div>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 7: Create your buttons to control the player and their on click event handlers"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Notice that in our click handlers we are using the ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "videoPlayer"
+                      ]
+                    },
+                    " API.",
+                    " ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "videoPlayer"
+                      ]
+                    },
+                    ": Will only affect the video that we see in the videoElement. ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "videoPlayer"
+                      ]
+                    },
+                    " has the following properties: ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "localAudioVolume"
+                      ]
+                    },
+                    ", ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "localVideoPaused"
+                      ]
+                    },
+                    ", ",
+                    {
+                      "$$mdtype": "Tag",
+                      "name": "code",
+                      "attributes": {},
+                      "children": [
+                        "localAudioMuted"
+                      ]
+                    },
+                    "."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      let playerVideo;\n\n      //Click handler for playing/pausing the video\n      function handlePlayerPlay() {\n        //Ensure the player exists\n        if (playerVideo) {\n          playerVideo.localVideoPaused = !player.localVideoPaused;\n        }\n      }\n\n      //Click handler for muting/unmuting the video\n      function handlePlayerMute() {\n        //Ensure the playerVideo exists\n        if (playerVideo) {\n          playerVideo.localAudioMuted = !playerVideo.localAudioMuted;\n        }\n      }\n\n      //Click handler for entering fullScreen mode\n      function handlePlayerFullScreen() {\n        //Ensure the player exists\n        if (playerVideo) {\n          document.getElementById(\"playerWrapper\").requestFullscreen();\n        }\n      }\n\n      function addPlayer(player) {\n        //Here we are ensuring the Create Video Element feature exists on the current VideoClient\n        if (\n          VideoClient.adapter.device.isImplements(\n            VideoClient.adapter.Feature.CREATE_VIDEO_ELEMENT\n          )\n        ) {\n          //Now we create our player and append it to or playerWrapper\n          const videoEl = VideoClient.adapter.device.createVideoElement();\n          playerVideo = player;\n          videoEl.width = 400;\n          playerVideo.localAudioMuted = false;\n          player.attachTo(videoEl);\n          document.getElementById(\"playerWrapper\").appendChild(videoEl);\n        }\n        //Event listeners to trigger our click handler functions when button elements are clicked\n        document\n          .getElementById(\"playerPlayButton\")\n          .addEventListener(\"click\", handlePlayerPlay, false);\n        document\n          .getElementById(\"playerMuteButton\")\n          .addEventListener(\"click\", handlePlayerMute, false);\n        document\n          .getElementById(\"playerFullScreenButton\")\n          .addEventListener(\"click\", handlePlayerFullScreen, false);\n      }\n\n      function createVideoClient() {\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        let player;\n        try {\n          player = vc.requestPlayer(manifestUrl);\n        } catch (err) {\n          throw err;\n        }\n\n        addPlayer(player);\n\n        return false;\n      }\n    </script>\n    <div id=\"playerWrapper\"></div>\n    <button id=\"playerPlayButton\">Play/Pause</button>\n    <button id=\"playerMuteButton\">Mute</button>\n    <button id=\"playerFullScreenButton\">FullScreen</button>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h3",
+                  "attributes": {},
+                  "children": [
+                    "Step 8: Add an input for the manifest URL"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "p",
+                  "attributes": {},
+                  "children": [
+                    "Finally we are going to add an input where a manifest URL can be added and sent to our created function. Note: this is not the required way to do this, likely you will want to add the manifestUrl without user input but this is a good way to test if your player is working as expected with different manifests."
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      let playerVideo;\n\n      //Click handler for playing/pausing the video\n      function handlePlayerPlay() {\n        //Ensure the player exists\n        if (playerVideo) {\n          playerVideo.localVideoPaused = !player.localVideoPaused;\n        }\n      }\n\n      //Click handler for muting/unmuting the video\n      function handlePlayerMute() {\n        //Ensure the playerVideo exists\n        if (playerVideo) {\n          playerVideo.localAudioMuted = !playerVideo.localAudioMuted;\n        }\n      }\n\n      //Click handler for entering fullScreen mode\n      function handlePlayerFullScreen() {\n        //Ensure the player exists\n        if (playerVideo) {\n          document.getElementById(\"playerWrapper\").requestFullscreen();\n        }\n      }\n\n      function addPlayer(player) {\n        //Here we are ensuring the Create Video Element feature exists on the current VideoClient\n        if (\n          VideoClient.adapter.device.isImplements(\n            VideoClient.adapter.Feature.CREATE_VIDEO_ELEMENT\n          )\n        ) {\n          //Now we create our player and append it to or playerWrapper\n          const videoEl = VideoClient.adapter.device.createVideoElement();\n          playerVideo = player;\n          videoEl.width = 400;\n          playerVideo.localAudioMuted = false;\n          player.attachTo(videoEl);\n          document.getElementById(\"playerWrapper\").appendChild(videoEl);\n        }\n        //Event listeners to trigger our click handler functions when button elements are clicked\n        document\n          .getElementById(\"playerPlayButton\")\n          .addEventListener(\"click\", handlePlayerPlay, false);\n        document\n          .getElementById(\"playerMuteButton\")\n          .addEventListener(\"click\", handlePlayerMute, false);\n        document\n          .getElementById(\"playerFullScreenButton\")\n          .addEventListener(\"click\", handlePlayerFullScreen, false);\n      }\n\n      function createVideoClient() {\n        //Finally we can grab our manifest URL when this function is called.\n        const manifestUrl = document.getElementById(\"manifest\").value;\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        let player;\n        try {\n          player = vc.requestPlayer(manifestUrl);\n        } catch (err) {\n          throw err;\n        }\n\n        addPlayer(player);\n\n        return false;\n      }\n    </script>\n    <div id=\"playerWrapper\"></div>\n    <button id=\"playerPlayButton\">Play/Pause</button>\n    <button id=\"playerMuteButton\">Mute</button>\n    <button id=\"playerFullScreenButton\">FullScreen</button>\n    <br />\n    <label>Manifest Url: </label>\n    <form />\n    <input type=\"text\" id=\"manifest\" name=\"manifest\" />\n    <button id=\"submit\" onclick=\"return createVideoClient()\">Submit</button>\n  </body>\n</html>\n"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "h1",
+                  "attributes": {},
+                  "children": [
+                    "Full Code"
+                  ]
+                },
+                {
+                  "$$mdtype": "Tag",
+                  "name": "pre",
+                  "attributes": {
+                    "data-language": "html"
+                  },
+                  "children": [
+                    "<!DOCTYPE html>\n<html>\n  <body>\n    <script src=\"/videoClientLib.js\"></script>\n    <script>\n      let playerVideo;\n\n      //Click handler for playing/pausing the video\n      function handlePlayerPlay() {\n        //Ensure the player exists\n        if (playerVideo) {\n          playerVideo.localVideoPaused = !player.localVideoPaused;\n        }\n      }\n\n      //Click handler for muting/unmuting the video\n      function handlePlayerMute() {\n        //Ensure the playerVideo exists\n        if (playerVideo) {\n          playerVideo.localAudioMuted = !playerVideo.localAudioMuted;\n        }\n      }\n\n      //Click handler for entering fullScreen mode\n      function handlePlayerFullScreen() {\n        //Ensure the player exists\n        if (playerVideo) {\n          document.getElementById(\"playerWrapper\").requestFullscreen();\n        }\n      }\n\n      function addPlayer(player) {\n        //Here we are ensuring the Create Video Element feature exists on the current VideoClient\n        if (\n          VideoClient.adapter.device.isImplements(\n            VideoClient.adapter.Feature.CREATE_VIDEO_ELEMENT\n          )\n        ) {\n          //Now we create our player and append it to or playerWrapper\n          const videoEl = VideoClient.adapter.device.createVideoElement();\n          playerVideo = player;\n          videoEl.width = 400;\n          playerVideo.localAudioMuted = false;\n          player.attachTo(videoEl);\n          document.getElementById(\"playerWrapper\").appendChild(videoEl);\n        }\n        //Event listeners to trigger our click handler functions when button elements are clicked\n        document\n          .getElementById(\"playerPlayButton\")\n          .addEventListener(\"click\", handlePlayerPlay, false);\n        document\n          .getElementById(\"playerMuteButton\")\n          .addEventListener(\"click\", handlePlayerMute, false);\n        document\n          .getElementById(\"playerFullScreenButton\")\n          .addEventListener(\"click\", handlePlayerFullScreen, false);\n      }\n\n      function createVideoClient() {\n        //Finally we can grab our manifest URL when this function is called.\n        const manifestUrl = document.getElementById(\"manifest\").value;\n        //Here we are grabbing the streamKey at the end of our manifestURL\n        const streamKey = manifestUrl.slice(\n          manifestUrl.lastIndexOf(\"/\") + 1,\n          manifestUrl.indexOf(\".json\")\n        );\n\n        const vc = new VideoClient.VideoClient({\n          backendEndpoints: [\"https://yourEndpoint\"],\n          stats: {\n            app: \"Storybook\",\n            userId: uuid,\n            statsInterval: 5000,\n            streamId: streamKey,\n            studioId: \"321\",\n          },\n        });\n        let player;\n        try {\n          player = vc.requestPlayer(manifestUrl);\n        } catch (err) {\n          throw err;\n        }\n\n        addPlayer(player);\n\n        return false;\n      }\n    </script>\n\n    <div id=\"playerWrapper\"></div>\n    <button id=\"playerPlayButton\">Play/Pause</button>\n    <button id=\"playerMuteButton\">Mute</button>\n    <button id=\"playerFullScreenButton\">FullScreen</button>\n    <br />\n    <label>Manifest Url: </label>\n    <form />\n    <input type=\"text\" id=\"manifest\" name=\"manifest\" />\n    <button id=\"submit\" onclick=\"return createVideoClient()\">Submit</button>\n  </body>\n</html>\n"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
