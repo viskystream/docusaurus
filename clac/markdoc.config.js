@@ -45,6 +45,14 @@ const tags = {
             src: { type: String },
             alt: { type: String },
         },
+    },
+    fence: {
+        render: 'Fence',
+        attributes: {
+            language: {
+                type: String,
+            },
+        },
     }
 };
 

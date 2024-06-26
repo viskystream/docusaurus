@@ -5,6 +5,8 @@ import Note from './Note';
 import {
   TabHeader, TabHeaderItem, TabPanel, TabPanelItem, Tabs
 } from './Tabs';
+import Fence from './Fence';
+import Prose from './Prose';
 
 
 const components = {
@@ -14,6 +16,7 @@ const components = {
   TabHeaderItem,
   TabPanel,
   TabPanelItem,
+  Fence,
 }
 
 const MarkdocPage = ({ doc }) => {
@@ -26,7 +29,7 @@ const MarkdocPage = ({ doc }) => {
       <div className="container margin-vert--lg">
         <div className="row">
           <div className="col col--8 col--offset-2">
-            <article>{render}</article>
+            <Prose>{render}</Prose>
           </div>
         </div>
       </div>
